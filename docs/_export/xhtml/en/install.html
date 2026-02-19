@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>en:install</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="en,install"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="../../../en/install%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php%3Fmode=list&amp;ns=en"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="install.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../raw/en/install"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='en';var JSINFO = {"id":"en:install","namespace":"en","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="install.html#how_to_install">How to Install</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="install.html#install_basic_softwares">Install Basic Softwares</a></div></li>
+<li class="level2"><div class="li"><a href="install.html#compile_starbug1">Compile Starbug1</a></div></li>
+<li class="level2"><div class="li"><a href="install.html#how_to_setup_starbug1">How to setup Starbug1</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="install.html#other_informations">Other informations</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="how_to_install">How to Install</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;How to Install&quot;,&quot;hid&quot;:&quot;how_to_install&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-30&quot;} -->
+<h2 class="sectionedit2" id="install_basic_softwares">Install Basic Softwares</h2>
+<div class="level2">
+
+<p>
+First, Install gcc, gettext, rsync.
+for compile static version, install wget.
+For Ubuntu, you can execute below command. 
+</p>
+<pre class="code">  sudo apt-get install build-essential gettext rsync wget libjson-perl liblocale-po-perl</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install Basic Softwares&quot;,&quot;hid&quot;:&quot;install_basic_softwares&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;31-295&quot;} -->
+<h2 class="sectionedit3" id="compile_starbug1">Compile Starbug1</h2>
+<div class="level2">
+
+<p>
+Static Version Compile is easy. and static binary works faster.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../../en/install/compile/static.html" class="wikilink1" title="en:install:compile:static">How to compile static binary</a></div>
+</li>
+</ul>
+
+<p>
+If something wrong, try below.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../../en/install/compile/shared.html" class="wikilink1" title="en:install:compile:shared">How to compile binary that use shared library.</a></div>
+</li>
+</ul>
+
+<p>
+after compile, next is setup.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Compile Starbug1&quot;,&quot;hid&quot;:&quot;compile_starbug1&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;296-599&quot;} -->
+<h2 class="sectionedit4" id="how_to_setup_starbug1">How to setup Starbug1</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../../../en/install/setup.html" class="wikilink1" title="en:install:setup">How to setup Starbug1</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;How to setup Starbug1&quot;,&quot;hid&quot;:&quot;how_to_setup_starbug1&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:4,&quot;range&quot;:&quot;600-681&quot;} -->
+<h1 class="sectionedit5" id="other_informations">Other informations</h1>
+<div class="level1">
+<ul>
+<li class="level1 node"><div class="li"> <a href="../../../en/install/hook.html" class="wikilink1" title="en:install:hook">About hook functions</a></div>
+<ul>
+<li class="level2"><div class="li"> when register and reply, how to send mail, and etc.</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../en/install/aboutdatabase.html" class="wikilink1" title="en:install:aboutdatabase">About database schema</a></div>
+<ul>
+<li class="level2"><div class="li"> Starbug1 data structure.</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../en/install/backup.html" class="wikilink1" title="en:install:backup">How to backup.</a></div>
+<ul>
+<li class="level2"><div class="li"> example of backup.</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../en/install/export.html" class="wikilink1" title="en:install:export">How to export settings of projects</a></div>
+<ul>
+<li class="level2"><div class="li"> able to export projects settings.</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../en/install/faq.html" class="wikilink1" title="en:install:faq">FAQ</a></div>
+<ul>
+<li class="level2"><div class="li"> <abbr title="Frequently Asked Questions">FAQ</abbr></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Other informations&quot;,&quot;hid&quot;:&quot;other_informations&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:5,&quot;range&quot;:&quot;682-&quot;} --></div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>ja:install:setup</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="ja,install,setup"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="../../../../ja/install/setup%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../feed.php%3Fmode=list&amp;ns=ja:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="setup.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../raw/ja/install/setup"/>
+<link rel="stylesheet" type="text/css" href="../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='ja:install';var JSINFO = {"id":"ja:install:setup","namespace":"ja:install","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="setup.html#セットアップ方法">セットアップ方法</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="setup.html#starbug1の配置">Starbug1の配置</a></div></li>
+<li class="level3"><div class="li"><a href="setup.html#webサーバに合わせた設定ファイルを適切に編集します_以下はapache用設定です">Webサーバに合わせた設定ファイルを適切に編集します。(以下はapache用設定です)</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="セットアップ方法">セットアップ方法</h1>
+<div class="level1">
+
+<p>
+コンパイルが完了したら、WebサーバのDocumentRoot配下に配置します。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30bb\u30c3\u30c8\u30a2\u30c3\u30d7\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u30bb\u30c3\u30c8\u30a2\u30c3\u30d7\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-132&quot;} -->
+<h3 class="sectionedit2" id="starbug1の配置">Starbug1の配置</h3>
+<div class="level3">
+
+<p>
+Webサーバ(動作確認しているのはapache)のDocumentRoot配下に dist/starbug1 ディレクトリを配置します。下の例は、/var/www/ をDocumentRootとした場合です。
+</p>
+<pre class="code">$ su
+# cp -r dist/starbug1 /var/www/</pre>
+
+<p>
+(インストールディレクトリ)/starbug1 配下をcgi実行ユーザの権限に変更します。
+</p>
+<pre class="code"># cd /var/www
+# chown -R www-data:www-data starbug1</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Starbug1\u306e\u914d\u7f6e&quot;,&quot;hid&quot;:&quot;starbug1\u306e\u914d\u7f6e&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;133-589&quot;} -->
+<h3 class="sectionedit3" id="webサーバに合わせた設定ファイルを適切に編集します_以下はapache用設定です">Webサーバに合わせた設定ファイルを適切に編集します。(以下はapache用設定です)</h3>
+<div class="level3">
+
+<p>
+.htaccessによる設定がありますので、apache側で.htaccessを許可するよう設定して下さい。(AllowOverrideディレクティブの変更)
+&lt;Starbug1をセットアップしたディレクトリ&gt;/.htaccessというファイルで、各設定を適切に行なってください。 Apache以外のWebサーバで運用する場合は、それぞれのWebサーバに合わせて同様の設定を行なってください。
+apache用の設定ファイルは、dot.htaccessという名前で存在していますので、.htaccessへリネームしてから、編集を行なって下さい。
+</p>
+<pre class="code sh">$ cd &lt;Starbug1をセットアップしたディレクトリ&gt;
+$ cp dot.htaccess .htaccess </pre>
+<pre class="code apache"><span class="co1"># エラーページの指定</span>
+<span class="kw1">ErrorDocument</span> <span class="nu0">500</span> /starbug1/error.html
+<span class="co1"># CGIの実行許可</span>
+<span class="kw1">AddHandler</span> cgi-<span class="kw1">script</span> cgi
+<span class="kw1">Options</span> +ExecCGI
+<span class="co1"># 初期ページの設定</span>
+<span class="kw1">DirectoryIndex</span> index.cgi
+&nbsp;
+<span class="co1"># 一般ユーザの認証についての設定</span>
+&lt;<span class="kw3">Files</span> index.cgi&gt;
+    <span class="kw1">AuthName</span>      <span class="st0">&quot;authentication for guest user.&quot;</span>
+    <span class="kw1">AuthType</span>      Basic
+    <span class="kw1">AuthUserFile</span>  /etc/starbug1/.guest-passwd
+    <span class="kw1">Require</span>       valid-<span class="kw1">user</span>
+&lt;/<span class="kw3">Files</span>&gt;
+&nbsp;
+<span class="co1"># 管理ユーザの認証についての設定</span>
+&lt;<span class="kw3">Files</span> admin.cgi&gt;
+    <span class="kw1">AuthName</span>      <span class="st0">&quot;authentication for administrator user.&quot;</span>
+    <span class="kw1">AuthType</span>      Basic
+    <span class="kw1">AuthUserFile</span>  /etc/starbug1/.admin-passwd
+    <span class="kw1">Require</span>       valid-<span class="kw1">user</span>
+&lt;/<span class="kw3">Files</span>&gt;
+<span class="co1"># 隠すファイルやディレクトリ</span>
+&lt;<span class="kw3">FilesMatch</span> <span class="st0">&quot;.*&quot;</span>&gt;
+  <span class="kw1">deny</span> from <span class="kw2">all</span>
+&lt;/<span class="kw3">FilesMatch</span>&gt;
+<span class="co1"># 見せるファイル</span>
+&lt;<span class="kw3">FilesMatch</span> <span class="st0">&quot;(^$|<span class="es0">\.</span>cgi$|<span class="es0">\.</span>jpg$|<span class="es0">\.</span>png$|<span class="es0">\.</span>gif$|<span class="es0">\.</span>css$|<span class="es0">\.</span>js$)&quot;</span>&gt;
+  <span class="kw1">allow</span> from <span class="kw2">all</span>
+&lt;/<span class="kw3">FilesMatch</span>&gt;</pre>
+<ul>
+<li class="level1"><div class="li"> エラーページの指定</div>
+</li>
+</ul>
+
+<p>
+URLを適切に指定してください。アプリのフォルダ名(starbug1)を変更した場合は、エラーページの指定のURLを変更してください。
+</p>
+<ul>
+<li class="level1"><div class="li"> CGIの実行許可</div>
+</li>
+</ul>
+
+<p>
+不要であれば、コメントアウトしてください。
+</p>
+<ul>
+<li class="level1"><div class="li"> デフォルトページ(welcomeページ)</div>
+</li>
+</ul>
+
+<p>
+不要であれば、コメントアウトしてください。
+</p>
+<ul>
+<li class="level1"><div class="li"> Basic認証</div>
+</li>
+</ul>
+
+<p>
+Basic認証を使用する場合、htpasswdなどでパスワードファイルへのユーザの登録を行なってください。 一般ユーザと管理ユーザの設定を別々に行なう場合は、両方を正しく設定してください。不要であればコメントアウトしてください。 httpd.confを編集できる場合は、同等の設定を、httpd.confで行なう方が望ましいです。
+</p>
+
+<p>
+<a href="http://www.example.com/starbug1/index.cgi" class="urlextern" title="http://www.example.com/starbug1/index.cgi" rel="nofollow">http://www.example.com/starbug1/index.cgi</a> にアクセスします。(www.example.comはインストールしたサーバ名に変更してください)
+</p>
+
+<p>
+トップ画面が表示されれば、インストール成功です。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Web\u30b5\u30fc\u30d0\u306b\u5408\u308f\u305b\u305f\u8a2d\u5b9a\u30d5\u30a1\u30a4\u30eb\u3092\u9069\u5207\u306b\u7de8\u96c6\u3057\u307e\u3059\u3002(\u4ee5\u4e0b\u306fapache\u7528\u8a2d\u5b9a\u3067\u3059)&quot;,&quot;hid&quot;:&quot;web\u30b5\u30fc\u30d0\u306b\u5408\u308f\u305b\u305f\u8a2d\u5b9a\u30d5\u30a1\u30a4\u30eb\u3092\u9069\u5207\u306b\u7de8\u96c6\u3057\u307e\u3059_\u4ee5\u4e0b\u306fapache\u7528\u8a2d\u5b9a\u3067\u3059&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:3,&quot;range&quot;:&quot;590-&quot;} --></div>
+</body>
+</html>

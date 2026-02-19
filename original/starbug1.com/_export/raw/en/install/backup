@@ -1,0 +1,9 @@
+====== バックアップの方法 ======
+
+Starbug1で定期的にバックアップを行ないたい場合は、${インストールディレクトリ}/db/*.db をバックアップしてください。 *.dbは、ただのSQLite3のデータベースファイルです。
+例えばcronに登録する場合は以下のようにcrontab -e で設定すれば、バックアップできます。
+<code>
+# /var/www/starbug1 にインストールされたStarbug1のデータベースを、
+# gzipで圧縮して /var/backup 以下に保存する場合です。
+0 1 * * * tar zcf /var/backup/starbug1backup_$(date +%Y%m%d).tar.gz /var/www/starbug1/db
+</code>

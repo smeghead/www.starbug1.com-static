@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>en:install:compile:shared</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="en,install,compile,shared"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../../index.html"/>
+<link rel="contents" href="../../../../../en/install/compile/shared%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../../feed.php%3Fmode=list&amp;ns=en:install:compile"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="shared.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="https://starbug1.com/_export/raw/en/install/compile/shared"/>
+<link rel="stylesheet" type="text/css" href="../../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='en:install:compile';var JSINFO = {"id":"en:install:compile:shared","namespace":"en:install:compile","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="shared.html#how_to_compile_shared_version">How to Compile Shared version</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="shared.html#install_sqlite3">Install SQLite3</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="shared.html#install_by_operation_system_s_package_system">Install by operation system&#039;s package system.</a></div></li>
+<li class="level3"><div class="li"><a href="shared.html#install_by_sources">Install by sources.</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="shared.html#install_cgic">Install cgic</a></div></li>
+<li class="level2"><div class="li"><a href="shared.html#compile_starbug1">Compile Starbug1</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="shared.html#compile">Compile</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="how_to_compile_shared_version">How to Compile Shared version</h1>
+<div class="level1">
+
+<p>
+Starbug1 uses SQLite3, cgic, gettext, iconv. It needs rsunc, gettext, sqlite3, cgic To compile Starbug1.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;How to Compile Shared version&quot;,&quot;hid&quot;:&quot;how_to_compile_shared_version&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-151&quot;} -->
+<h2 class="sectionedit2" id="install_sqlite3">Install SQLite3</h2>
+<div class="level2">
+
+<p>
+If sqlite3 development files was installed, jump to next step.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install SQLite3&quot;,&quot;hid&quot;:&quot;install_sqlite3&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;152-244&quot;} -->
+<h3 class="sectionedit3" id="install_by_operation_system_s_package_system">Install by operation system&#039;s package system.</h3>
+<div class="level3">
+
+<p>
+Ubuntu:
+</p>
+<pre class="code">$ sudo apt-get install libsqlite3-dev</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install by operation system&#039;s package system.&quot;,&quot;hid&quot;:&quot;install_by_operation_system_s_package_system&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;245-363&quot;} -->
+<h3 class="sectionedit4" id="install_by_sources">Install by sources.</h3>
+<div class="level3">
+
+<p>
+Download latest source sqlite-3.x.x.tar.gz from <a href="http://www.sqlite.org/" class="urlextern" title="http://www.sqlite.org/" rel="nofollow">http://www.sqlite.org/</a>.
+</p>
+<pre class="code">$ wget http://www.sqlite.org/sqlite-3.5.4.tar.gz</pre>
+
+<p>
+extract, compile and install.
+</p>
+<pre class="code">$ tar zxf sqlite-3.5.4.tar.gz
+$ mkdir bld
+$ cd bld
+$ ../sqlite-3-5-4/configure --disable-tcl
+$ make
+$ sudo make install</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install by sources.&quot;,&quot;hid&quot;:&quot;install_by_sources&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:4,&quot;range&quot;:&quot;364-706&quot;} -->
+<h2 class="sectionedit5" id="install_cgic">Install cgic</h2>
+<div class="level2">
+
+<p>
+Download cgic205.tar.gz from <a href="http://www.boutell.com/cgic/" class="urlextern" title="http://www.boutell.com/cgic/" rel="nofollow">http://www.boutell.com/cgic/</a>.
+</p>
+<pre class="code">$ wget http://www.boutell.com/cgic/cgic205.tar.gz</pre>
+
+<p>
+extract, compile and install.
+</p>
+<pre class="code">$ tar zxf cgic205.tar.gz
+$ cd cgic205
+$ make
+$ sudo make install</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install cgic&quot;,&quot;hid&quot;:&quot;install_cgic&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:5,&quot;range&quot;:&quot;707-983&quot;} -->
+<h2 class="sectionedit6" id="compile_starbug1">Compile Starbug1</h2>
+<div class="level2">
+
+<p>
+get source.
+</p>
+
+<p>
+Download from <a href="https://sourceforge.jp/projects/starbug1/" class="urlextern" title="https://sourceforge.jp/projects/starbug1/" rel="nofollow">https://sourceforge.jp/projects/starbug1/</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Compile Starbug1&quot;,&quot;hid&quot;:&quot;compile_starbug1&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:6,&quot;range&quot;:&quot;984-1082&quot;} -->
+<h3 class="sectionedit7" id="compile">Compile</h3>
+<div class="level3">
+
+<p>
+Extract source file archive and compile.
+</p>
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=ja_JP webapp</pre>
+
+<p>
+It is required GNU Make To compile Starbug1. If make is GNU&#039;s, use gmake instead.
+above command makes web application set to the directory dist/starbug1.
+</p>
+
+<p>
+Compile several language versions.
+</p>
+
+</div>
+
+<h4 id="english_version">English Version</h4>
+<div class="level4">
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=en_US webapp</pre>
+
+</div>
+
+<h4 id="simplified_chinese">Simplified Chinese</h4>
+<div class="level4">
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=zh_CN webapp</pre>
+
+</div>
+
+<h4 id="traditional_chinese">Traditional Chinese</h4>
+<div class="level4">
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=zh_TW webapp</pre>
+
+<p>
+<a href="../../../../../en/install/setup.html" class="wikilink1" title="en:install:setup">next is setup.</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Compile&quot;,&quot;hid&quot;:&quot;compile&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:7,&quot;range&quot;:&quot;1083-&quot;} --></div>
+</body>
+</html>

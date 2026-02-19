@@ -1,0 +1,83 @@
+====== セットアップ方法 ======
+
+コンパイルが完了したら、WebサーバのDocumentRoot配下に配置します。
+
+==== Starbug1の配置 ====
+
+Webサーバ(動作確認しているのはapache)のDocumentRoot配下に dist/starbug1 ディレクトリを配置します。下の例は、/var/www/ をDocumentRootとした場合です。
+
+<code>
+$ su
+# cp -r dist/starbug1 /var/www/
+</code>
+
+
+(インストールディレクトリ)/starbug1 配下をcgi実行ユーザの権限に変更します。
+
+<code>
+# cd /var/www
+# chown -R www-data:www-data starbug1
+</code>      
+==== Webサーバに合わせた設定ファイルを適切に編集します。(以下はapache用設定です) ====
+.htaccessによる設定がありますので、apache側で.htaccessを許可するよう設定して下さい。(AllowOverrideディレクティブの変更)
+<Starbug1をセットアップしたディレクトリ>/.htaccessというファイルで、各設定を適切に行なってください。 Apache以外のWebサーバで運用する場合は、それぞれのWebサーバに合わせて同様の設定を行なってください。
+apache用の設定ファイルは、dot.htaccessという名前で存在していますので、.htaccessへリネームしてから、編集を行なって下さい。
+<code sh>
+$ cd <Starbug1をセットアップしたディレクトリ>
+$ cp dot.htaccess .htaccess 
+</code>
+
+<code apache>
+# エラーページの指定
+ErrorDocument 500 /starbug1/error.html
+# CGIの実行許可
+AddHandler cgi-script cgi
+Options +ExecCGI
+# 初期ページの設定
+DirectoryIndex index.cgi
+
+# 一般ユーザの認証についての設定
+<Files index.cgi>
+    AuthName      "authentication for guest user."
+    AuthType      Basic
+    AuthUserFile  /etc/starbug1/.guest-passwd
+    Require       valid-user
+</Files>
+
+# 管理ユーザの認証についての設定
+<Files admin.cgi>
+    AuthName      "authentication for administrator user."
+    AuthType      Basic
+    AuthUserFile  /etc/starbug1/.admin-passwd
+    Require       valid-user
+</Files>
+# 隠すファイルやディレクトリ
+<FilesMatch ".*">
+  deny from all
+</FilesMatch>
+# 見せるファイル
+<FilesMatch "(^$|\.cgi$|\.jpg$|\.png$|\.gif$|\.css$|\.js$)">
+  allow from all
+</FilesMatch>
+</code>      
+
+  * エラーページの指定
+
+URLを適切に指定してください。アプリのフォルダ名(starbug1)を変更した場合は、エラーページの指定のURLを変更してください。
+
+  * CGIの実行許可
+
+不要であれば、コメントアウトしてください。
+
+  * デフォルトページ(welcomeページ)
+
+不要であれば、コメントアウトしてください。
+
+  * Basic認証
+
+Basic認証を使用する場合、htpasswdなどでパスワードファイルへのユーザの登録を行なってください。 一般ユーザと管理ユーザの設定を別々に行なう場合は、両方を正しく設定してください。不要であればコメントアウトしてください。 httpd.confを編集できる場合は、同等の設定を、httpd.confで行なう方が望ましいです。
+
+
+http://www.example.com/starbug1/index.cgi にアクセスします。(www.example.comはインストールしたサーバ名に変更してください)
+
+トップ画面が表示されれば、インストール成功です。

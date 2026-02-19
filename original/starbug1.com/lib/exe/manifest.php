@@ -1,0 +1,1 @@
+{"display":"standalone","scope":"\/","name":"Starbug1","short_name":"Starbug1","description":"","start_url":"\/","background_color":"#fff","theme_color":"#dee7ec","icons":[{"src":"http:\/\/127.0.0.1:81\/_media\/wiki\/dokuwiki.svg","sizes":"17x17 512x512","type":"image\/svg+xml"}]}

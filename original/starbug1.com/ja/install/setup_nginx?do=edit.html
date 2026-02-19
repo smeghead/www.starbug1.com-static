@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="setup_nginx%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php%3Fmode=list&amp;ns=ja:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/ja/install/setup_nginx.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/ja/install/setup_nginx"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='ja:install';var JSINFO = {"id":"ja:install:setup_nginx","namespace":"ja:install","ACT":"source","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
+        <title>Starbug1 Official WebSite - ja:install:setup_nginx</title>
+        <script type="text/javascript">
+		//Open blank window
+		window.onload = function() {
+		  var node_a = document.getElementsByTagName('a');
+		  for (var i in node_a) {
+		    if (node_a[i].className == 'blank') {
+		      node_a[i].onclick = function() {
+			window.open(this.href, '', '');
+			return false;
+		      };
+		    }
+		  }
+		};
+	</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19259553-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </head>
+    <body>
+        <div id="header">
+                <h1><a href="../../start.html"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[ALT+H]"><img src="../../lib/tpl/sandy/images/banner_840.png" alt="Starbug1"/></a></h1>
+                <div id="lang">
+                        <ul>
+                                <!--<li class="fr"><a hreflang="fr" href="http://fr.flashsandy.org/ja/install/setup_nginx"></a></li>
+                                -->
+                                <li class="ja"><a hreflang="ja" href="../start.html">Japanese</a></li>
+                                <li class="en"><a hreflang="en" href="../../en/start.html">English</a></li>
+                                <li class="zh"><a hreflang="zh" href="../../zh/start.html">Chinese</a></li>
+                        </ul>
+                </div>
+		<div id="twitter">
+		    <a href="http://twitter.com/home?status=http%3A%2F%2Fstarbug1.com%2F%20Starbug1%20-Bug%20Tracking%20System." title="tweet this!" class="blank" rel="nofollow">
+		      <img id="twitter-image" src="../../lib/tpl/sandy/images/t.png" alt="Tweet This."/>
+		    </a>
+		</div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="../start.html" >Top</a></li>
+<li><a href="../demo.html" >Demo</a></li>
+<li><a href="../download.html" >Download</a></li>
+<li><a href="../install.html" >Install</a></li>
+<li><a href="../tutorials.html" >Tutorials</a></li>
+            </ul>
+	    &nbsp;&nbsp;
+            <a href="http://b.hatena.ne.jp/append?http://starbug1.com/">
+                    <img class="sbmicon" src="../../lib/tpl/sandy/images/b_entry.gif" width="16" height="12" alt="" title="" style="vertical-align: middle; border: none;" />
+            </a>
+            <a href="http://b.hatena.ne.jp/entry/http://starbug1.com/">
+                     <img src="http://b.hatena.ne.jp/entry/image/http://starbug1.com/" alt="hatena bookmark - Starbug1 Official Website" title="hatena bookmark - Starbug1 Official Website" style="vertical-align: middle; border: none;" />
+            </a>
+	    &nbsp;&nbsp;
+
+	    <a href="http://delicious.com/save?url=http://starbug1.com/&amp;title=Starbug1%20Official%20WebSite%20-%20start" title="add to delicious.com"> 
+	    <img class="sbmicon" src="../../lib/tpl/sandy/images/delicious.gif" alt="add to delicious.com" style="vertical-align: middle; border: none;" /> 
+	    </a>
+	    &nbsp;&nbsp;
+	    <a href="http://clip.livedoor.com/clip/add?jump=myclip&amp;link=http://starbug1.com/" title="add to livedoor.clip"> 
+	    <img class="sbmicon" src="../../lib/tpl/sandy/images/livedoor.gif" alt="add to livedoor.clip" style="vertical-align: middle; border: none;" /> 
+	    <img src="http://image.clip.livedoor.com/counter/http://starbug1.com/" alt="add to livedoor.clip" style="vertical-align: middle; border: none;" /> 
+	    </a> 
+        </div>
+                <div id="body">
+            <div id="body_top"></div>
+            <p class="youarehere"></p>
+                                    
+<p>
+This page is read only. You can view the source, but not change it. Ask your administrator if you think this is wrong.
+</p>
+    <div class="editBox" role="application">
+
+    <div class="toolbar group">
+        <div id="draft__status" class="draft__status"></div>
+        <div id="tool__bar" class="tool__bar"></div>
+    </div>
+    <form id="dw__editform" method="post" action="setup_nginx%3Fdo=edit.html" accept-charset="utf-8"><div class="no">
+<input type="hidden" name="sectok" value="" /><input type="hidden" name="id" value="ja:install:setup_nginx" /><input type="hidden" name="rev" value="0" /><input type="hidden" name="date" value="0" /><input type="hidden" name="prefix" value="." /><input type="hidden" name="suffix" value="" /><input type="hidden" name="changecheck" value="dc05b0d30f63321447c81ee3fc8e79d1" /><input type="hidden" name="target" value="section" /><textarea name="wikitext" id="wiki__text" dir="auto" class="edit" cols="80" rows="10" tabindex="1" readonly="readonly">
+====== インストール方法(nginx) ======
+=== 参考 ===
+
+* &lt;a href=&quot;http://wiki.nginx.org/NginxSimpleCGI&quot; target=&quot;_blank&quot;&gt;Simple CGI&lt;/a&gt;
+
+===== Starbug1 =====
+
+* Starbug1をダウンロードして、コンパイルして/var/vhosts/demo.starbug1.com/starbug1に配置する。
+&lt;code bash&gt;
+$ tar zxf starbug1-1.6.00.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=ja_JP static webapp
+$ sudo mkdir /var/vhosts/demo.starbug1.com
+$ sudo cp -r dist/starbug1 /var/vhosts/demo.starbug1.com/
+$ sudo chown -R www-data:www-data /var/vhosts/demo.starbug1.com/starbug1
+&lt;/code&gt;
+
+===== fastcgi =====
+
+* 必要なモジュールのインストール
+&lt;code bash&gt;
+$ sudo apt-get install nginx libfcgi-perl libfcgi-procmanager-perl spawn-fcgi
+&lt;/code&gt;
+
+===== ラッパーの用意 =====
+
+-    /usr/local/bin/cgiwrap-fcgi.pl
+&lt;code perl&gt;
+#!/usr/bin/perl
+use FCGI;
+use Socket;
+use FCGI::ProcManager;
+sub shutdown { FCGI::CloseSocket($socket); exit; }
+sub restart  { FCGI::CloseSocket($socket); &amp;main; }
+use sigtrap 'handler', \&amp;shutdown, 'normal-signals';
+use sigtrap 'handler', \&amp;restart,  'HUP';
+require 'syscall.ph';
+use POSIX qw(setsid);
+ 
+END()   { }
+BEGIN() { }
+{
+  no warnings;
+  *CORE::GLOBAL::exit = sub { die &quot;fakeexit\nrc=&quot; . shift() . &quot;\n&quot;; };
+};
+ 
+eval q{exit};
+if ($@) {
+  exit unless $@ =~ /^fakeexit/;
+}
+&amp;main;
+ 
+sub daemonize() {
+  chdir '/' or die &quot;Can't chdir to /: $!&quot;;
+  defined( my $pid = fork ) or die &quot;Can't fork: $!&quot;;
+  exit if $pid;
+  setsid() or die &quot;Can't start a new session: $!&quot;;
+  umask 0;
+}
+ 
+sub main {
+  $proc_manager = FCGI::ProcManager-&gt;new( {n_processes =&gt; 5} );
+  $socket = FCGI::OpenSocket( &quot;/var/run/nginx/cgiwrap-dispatch.sock&quot;, 10 )
+  ; #use UNIX sockets - user running this script must have w access to the 'nginx' folder!!
+  $request =
+  FCGI::Request( \*STDIN, \*STDOUT, \*STDERR, \%req_params, $socket,
+  &amp;FCGI::FAIL_ACCEPT_ON_INTR );
+  $proc_manager-&gt;pm_manage();
+  if ($request) { request_loop() }
+  FCGI::CloseSocket($socket);
+}
+ 
+sub request_loop {
+  while ( $request-&gt;Accept() &gt;= 0 ) {
+    $proc_manager-&gt;pm_pre_dispatch();
+ 
+    #processing any STDIN input from WebServer (for CGI-POST actions)
+    $stdin_passthrough = '';
+    { no warnings; $req_len = 0 + $req_params{'CONTENT_LENGTH'}; };
+    if ( ( $req_params{'REQUEST_METHOD'} eq 'POST' ) &amp;&amp; ( $req_len != 0 ) ) {
+      my $bytes_read = 0;
+      while ( $bytes_read &lt; $req_len ) {
+        my $data = '';
+        my $bytes = read( STDIN, $data, ( $req_len - $bytes_read ) );
+        last if ( $bytes == 0 || !defined($bytes) );
+        $stdin_passthrough .= $data;
+        $bytes_read += $bytes;
+      }
+    }
+ 
+    #running the cgi app
+    if (
+      ( -x $req_params{SCRIPT_FILENAME} ) &amp;&amp;    #can I execute this?
+      ( -s $req_params{SCRIPT_FILENAME} ) &amp;&amp;    #Is this file empty?
+      ( -r $req_params{SCRIPT_FILENAME} )       #can I read this file?
+    ) {
+      pipe( CHILD_RD,   PARENT_WR );
+      pipe( PARENT_ERR, CHILD_ERR );
+      my $pid = open( CHILD_O, &quot;-|&quot; );
+      unless ( defined($pid) ) {
+        print(&quot;Content-type: text/plain\r\n\r\n&quot;);
+        print &quot;Error: CGI app returned no output - Executing $req_params{SCRIPT_FILENAME} failed !\n&quot;;
+        next;
+      }
+      $oldfh = select(PARENT_ERR);
+      $|     = 1;
+      select(CHILD_O);
+      $| = 1;
+      select($oldfh);
+      if ( $pid &gt; 0 ) {
+        close(CHILD_RD);
+        close(CHILD_ERR);
+        print PARENT_WR $stdin_passthrough;
+        close(PARENT_WR);
+        $rin = $rout = $ein = $eout = '';
+        vec( $rin, fileno(CHILD_O),    1 ) = 1;
+        vec( $rin, fileno(PARENT_ERR), 1 ) = 1;
+        $ein    = $rin;
+        $nfound = 0;
+ 
+        while ( $nfound = select( $rout = $rin, undef, $ein = $eout, 10 ) ) {
+          die &quot;$!&quot; unless $nfound != -1;
+          $r1 = vec( $rout, fileno(PARENT_ERR), 1 ) == 1;
+          $r2 = vec( $rout, fileno(CHILD_O),    1 ) == 1;
+          $e1 = vec( $eout, fileno(PARENT_ERR), 1 ) == 1;
+          $e2 = vec( $eout, fileno(CHILD_O),    1 ) == 1;
+ 
+          if ($r1) {
+            while ( $bytes = read( PARENT_ERR, $errbytes, 4096 ) ) {
+              print STDERR $errbytes;
+            }
+            if ($!) {
+              $err = $!;
+              die $!;
+              vec( $rin, fileno(PARENT_ERR), 1 ) = 0
+              unless ( $err == EINTR or $err == EAGAIN );
+            }
+          }
+          if ($r2) {
+            while ( $bytes = read( CHILD_O, $s, 4096 ) ) {
+              print $s;
+            }
+            if ( !defined($bytes) ) {
+              $err = $!;
+              die $!;
+              vec( $rin, fileno(CHILD_O), 1 ) = 0
+              unless ( $err == EINTR or $err == EAGAIN );
+            }
+          }
+          last if ( $e1 || $e2 );
+        }
+        close CHILD_RD;
+        close PARENT_ERR;
+        waitpid( $pid, 0 );
+      } else {
+        foreach $key ( keys %req_params ) {
+          $ENV{$key} = $req_params{$key};
+        }
+ 
+        # cd to the script's local directory
+        if ( $req_params{SCRIPT_FILENAME} =~ /^(.*)\/[^\/] +$/ ) {
+          chdir $1; 
+        }
+        close(PARENT_WR);
+        #close(PARENT_ERR);
+        close(STDIN);
+        close(STDERR);
+ 
+        #fcntl(CHILD_RD, F_DUPFD, 0);
+        syscall( &amp;SYS_dup2, fileno(CHILD_RD),  0 );
+        syscall( &amp;SYS_dup2, fileno(CHILD_ERR), 2 );
+ 
+        #open(STDIN, &quot;&lt;&amp;CHILD_RD&quot;);
+        exec( $req_params{SCRIPT_FILENAME} );
+        die(&quot;exec failed&quot;);
+      }
+    } else {
+      print(&quot;Content-type: text/plain\r\n\r\n&quot;);
+      print &quot;Error: No such CGI app - $req_params{SCRIPT_FILENAME} may not exist or is not executable by this process.\n&quot;;
+    }
+  }
+}
+
+&lt;/code&gt;
+
+===== ラッパーの起動 =====
+
+&lt;code bash&gt;
+$ chmod 755 /usr/local/bin/cgiwrap-fcgi.pl
+$ mkdir /var/run/nginx/
+$ chown www-data:www-data /var/run/nginx/
+$ /usr/local/bin/cgiwrap-fcgi.pl &amp;&gt; /dev/null &amp;
+&lt;/code&gt;
+
+===== nginx のサイト定義追加 =====
+
+* /etc/nginx/sites-available/demo.starbug1.com
+&lt;code nginx&gt;
+server {
+	server_name	demo.starbug1.com;
+	listen 80;
+
+	root	 /var/vhosts/demo.starbug1.com;
+	index	index.cgi index.html;
+	
+	location / {
+		if (-e $request_filename) {
+		    rewrite index.cgi /index.cgi last;
+		    rewrite admin.cgi /admin.cgi last;
+		}
+	}
+	location ~ \.cgi($|/) {
+		gzip off;
+		fastcgi_pass   unix:/var/run/nginx/cgiwrap-dispatch.sock;
+		fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;
+		fastcgi_param  SERVER_SOFTWARE    nginx;
+		fastcgi_param  QUERY_STRING       $query_string;
+		fastcgi_param  REQUEST_METHOD     $request_method;
+		fastcgi_param  CONTENT_TYPE       $content_type;
+		fastcgi_param  CONTENT_LENGTH     $content_length;
+		fastcgi_param  REQUEST_URI        $request_uri;
+		fastcgi_param  DOCUMENT_URI       $document_uri;
+		fastcgi_param  DOCUMENT_ROOT      $document_root;
+		fastcgi_param  SERVER_PROTOCOL    $server_protocol;
+		fastcgi_param  REMOTE_ADDR        $remote_addr;
+		fastcgi_param  REMOTE_PORT        $remote_port;
+		fastcgi_param  SERVER_ADDR        $server_addr;
+		fastcgi_param  SERVER_PORT        $server_port;
+		fastcgi_param  SERVER_NAME        $server_name;
+		fastcgi_split_path_info ^((?U).+\.cgi)(/?.+)$;
+		fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+		fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;
+		fastcgi_param  PATH_INFO          $fastcgi_path_info;
+
+	}
+
+	access_log  /var/log/nginx/demo.starbug1.com.access.log combined;
+	error_log  /var/log/nginx/demo.starbug1.com.error.log;
+}
+&lt;/code&gt;
+
+=====    サイトの有効化 =====
+
+&lt;code bash&gt;
+$ cd /etc/nginx/sites-enabled
+$ sudo ln -s /etc/nginx/sites-available/demo.starbug1.com
+&lt;/code&gt;
+
+=====    nginx再起動 =====
+
+&lt;code bash&gt;
+$ sudo /etc/init.d/nginx restart
+&lt;/code&gt;
+
+
+これで、Starbug1を http://demo.starbug1.com/starbug1/ にアクセスして、nginxで動かすことができました。</textarea>
+<div id="wiki__editbar" class="editBar">
+<div id="size__ctl">
+</div>
+</div>
+</div></form>
+</div>
+
+                        <div id="body_bottom"><img src="https://starbug1.com/lib/exe/indexer.php?id=ja%3Ainstall%3Asetup_nginx&amp;1771505022" width="2" height="1" alt="" /></div>
+                </div>
+        <div id="footer">
+            <form action="../../start.html" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8"><input type="hidden" name="do" value="search" /><input type="hidden" name="id" value="ja:install:setup_nginx" /><div class="no"><input name="q" type="text" class="edit" title="[F]" accesskey="f" placeholder="Search" autocomplete="on" id="qsearch__in" value="" /><button value="1" type="submit" title="Search">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <ul>
+                <li><a href="https://starbug1.com/ja/install/setup_nginx?do="  class="action show" accesskey="v" rel="nofollow" title="Show page [V]">Show page</a></li>
+                <li><a href="setup_nginx%3Fdo=login&amp;sectok=.html"  class="action login" rel="nofollow" title="Log In">Log In</a></li>
+            </ul>
+                        <div style="text-align:right;"> 
+              <div><address>Copyright smeghead 2007 - 2011.</address></div> 
+              <div><address>Powered By DokuWiki.</address></div> 
+            </div> 
+        </div>
+    </body>
+</html>

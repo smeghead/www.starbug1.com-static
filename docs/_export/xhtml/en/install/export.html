@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>en:install:export</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="en,install,export"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="../../../../en/install/export%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../feed.php%3Fmode=list&amp;ns=en:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="export.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../raw/en/install/export"/>
+<link rel="stylesheet" type="text/css" href="../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='en:install';var JSINFO = {"id":"en:install:export","namespace":"en:install","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="export.html#設定情報をエクスポートする機能について">設定情報をエクスポートする機能について</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="export.html#概要">概要</a></div></li>
+<li class="level3"><div class="li"><a href="export.html#既に存在するプロジェクトの設定データを保存する方法">既に存在するプロジェクトの設定データを保存する方法</a></div></li>
+<li class="level3"><div class="li"><a href="export.html#保存した設定データを新しいプロジェクトに反映させる方法">保存した設定データを新しいプロジェクトに反映させる方法</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="設定情報をエクスポートする機能について">設定情報をエクスポートする機能について</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u8a2d\u5b9a\u60c5\u5831\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8\u3059\u308b\u6a5f\u80fd\u306b\u3064\u3044\u3066&quot;,&quot;hid&quot;:&quot;\u8a2d\u5b9a\u60c5\u5831\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8\u3059\u308b\u6a5f\u80fd\u306b\u3064\u3044\u3066&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-71&quot;} -->
+<h3 class="sectionedit2" id="概要">概要</h3>
+<div class="level3">
+
+<p>
+設定情報をエクスポートすることができます。 設定情報とは、プロジェクトに設定された項目、項目の選択肢などの情報とユーザ用スタイルシートです。 既に存在するプロジェクトから、設定情報を取得し、新しいプロジェクトに設定情報を移行することができます。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6982\u8981&quot;,&quot;hid&quot;:&quot;\u6982\u8981&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;72-453&quot;} -->
+<h3 class="sectionedit3" id="既に存在するプロジェクトの設定データを保存する方法">既に存在するプロジェクトの設定データを保存する方法</h3>
+<div class="level3">
+
+<p>
+既に存在するプロジェクトの動作環境のサーバ上でコマンドを実行します。
+</p>
+<pre class="code sh"># cd /somewhere/to/old/project
+# cd script
+# ./pickup_template</pre>
+
+<p>
+実行後、template ディレクトリが作成され、内部にテンプレートが作成されます。既にtemplateディレクトリが存在する場合、削除されますのでバックアップが必要な場合は先にバックアップしてください。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u65e2\u306b\u5b58\u5728\u3059\u308b\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306e\u8a2d\u5b9a\u30c7\u30fc\u30bf\u3092\u4fdd\u5b58\u3059\u308b\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u65e2\u306b\u5b58\u5728\u3059\u308b\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306e\u8a2d\u5b9a\u30c7\u30fc\u30bf\u3092\u4fdd\u5b58\u3059\u308b\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;454-1005&quot;} -->
+<h3 class="sectionedit4" id="保存した設定データを新しいプロジェクトに反映させる方法">保存した設定データを新しいプロジェクトに反映させる方法</h3>
+<div class="level3">
+
+<p>
+新しいプロジェクトをインストールします。正常にインストールが完了した状態で、保存してあったtemplateディレクトリを上書きします。
+</p>
+<pre class="code sh"># cp -r /somewhere/to/old/project/template/* /somewhere/to/new/project/</pre>
+
+<p>
+その後、新しいプロジェクトのdbディレクトリの所有者をhttpサーバの実行ユーザに変更します。
+</p>
+<pre class="code sh"># cd /somewhere/to/new/project/
+# chown -R www-data:www-data db</pre>
+
+<p>
+以上で、新しいプロジェクトに古いプロジェクトの設定情報が反映されます。 新しいプロジェクトと古いプロジェクトのバージョンが違う場合は、正常に反映されない又は正常に動作しない可能性があります。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u4fdd\u5b58\u3057\u305f\u8a2d\u5b9a\u30c7\u30fc\u30bf\u3092\u65b0\u3057\u3044\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u53cd\u6620\u3055\u305b\u308b\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u4fdd\u5b58\u3057\u305f\u8a2d\u5b9a\u30c7\u30fc\u30bf\u3092\u65b0\u3057\u3044\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u53cd\u6620\u3055\u305b\u308b\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:4,&quot;range&quot;:&quot;1006-&quot;} --></div>
+</body>
+</html>

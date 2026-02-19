@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>ja:install</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="ja,install"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="../../../ja/install%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../feed.php%3Fmode=list&amp;ns=ja"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="install.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../raw/ja/install"/>
+<link rel="canonical" href="http://127.0.0.1:81/ja/install"/>
+<link rel="stylesheet" type="text/css" href="../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='ja';var JSINFO = {"id":"ja:install","namespace":"ja","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="install.html#インストール方法">インストール方法</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="install.html#基本ソフトウェアのインストール">基本ソフトウェアのインストール</a></div></li>
+<li class="level2"><div class="li"><a href="install.html#starbug1のコンパイル">Starbug1のコンパイル</a></div></li>
+<li class="level2"><div class="li"><a href="install.html#starbug1のセットアップ">Starbug1のセットアップ</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="install.html#その他の情報">その他の情報</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="インストール方法">インストール方法</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-39&quot;} -->
+<h2 class="sectionedit2" id="基本ソフトウェアのインストール">基本ソフトウェアのインストール</h2>
+<div class="level2">
+
+<p>
+gcc, gettext, rsyncをインストールして下さい。
+スタティック版のコンパイルを行なう場合には、wgetも必要となります。
+Ubuntuの場合は、以下のコマンドを実行して必要なソフトウェアをインストールできます。
+</p>
+<pre class="code">  sudo apt-get install build-essential gettext rsync wget libjson-perl liblocale-po-perl</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u57fa\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb&quot;,&quot;hid&quot;:&quot;\u57fa\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;40-483&quot;} -->
+<h2 class="sectionedit3" id="starbug1のコンパイル">Starbug1のコンパイル</h2>
+<div class="level2">
+
+<p>
+スタティック版のコンパイル方法は、手順が少なく簡単です。パフォーマンス的にも速いバイナリができるようです。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../../ja/install/compile/static.html" class="wikilink1" title="ja:install:compile:static">スタティック版 コンパイル方法</a></div>
+</li>
+</ul>
+
+<p>
+スタティック版のコンパイルがうまくいかない場合は、下のコンパイル方法を試して下さい。
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="../../../ja/install/compile/shared.html" class="wikilink1" title="ja:install:compile:shared">SQLite3共有ライブラリ利用版 コンパイル方法</a></div>
+</li>
+</ul>
+
+<p>
+コンパイルが成功したら、セットアップに進んで下さい。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Starbug1\u306e\u30b3\u30f3\u30d1\u30a4\u30eb&quot;,&quot;hid&quot;:&quot;starbug1\u306e\u30b3\u30f3\u30d1\u30a4\u30eb&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;484-1066&quot;} -->
+<h2 class="sectionedit4" id="starbug1のセットアップ">Starbug1のセットアップ</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <a href="../../../ja/install/setup.html" class="wikilink1" title="ja:install:setup">セットアップ方法(apache)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="../../../ja/install/setup_nginx.html" class="wikilink1" title="ja:install:setup_nginx">セットアップ方法(nginx)</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Starbug1\u306e\u30bb\u30c3\u30c8\u30a2\u30c3\u30d7&quot;,&quot;hid&quot;:&quot;starbug1\u306e\u30bb\u30c3\u30c8\u30a2\u30c3\u30d7&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:4,&quot;range&quot;:&quot;1067-1231&quot;} -->
+<h1 class="sectionedit5" id="その他の情報">その他の情報</h1>
+<div class="level1">
+<ul>
+<li class="level1 node"><div class="li"> <a href="../../../ja/install/hook.html" class="wikilink1" title="ja:install:hook">フック機能について</a></div>
+<ul>
+<li class="level2"><div class="li"> 投稿時、返信時に、メール送信などを行なうようにする方法についてです。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../ja/install/vcshook.html" class="wikilink2" title="ja:install:vcshook" rel="nofollow">バージョン管理システム連携</a></div>
+<ul>
+<li class="level2"><div class="li"> Subversionのコミット時に、自動的にStarbug1のチケットの状態を更新する方法についてです。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../ja/install/aboutdatabase.html" class="wikilink1" title="ja:install:aboutdatabase">DB構成について</a></div>
+<ul>
+<li class="level2"><div class="li"> Starbug1のデータの格納方法についての情報です。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../ja/install/backup.html" class="wikilink1" title="ja:install:backup">バックアップの方法</a></div>
+<ul>
+<li class="level2"><div class="li"> バックアップを取る方法の例です。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../ja/install/export.html" class="wikilink1" title="ja:install:export">設定情報をエクスポートする機能について</a></div>
+<ul>
+<li class="level2"><div class="li"> あるサブプロジェクトを複製して他のプロジェクトを新規作成することができます。</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> <a href="../../../ja/install/faq.html" class="wikilink1" title="ja:install:faq">FAQ</a></div>
+<ul>
+<li class="level2"><div class="li"> FAQです。</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u305d\u306e\u4ed6\u306e\u60c5\u5831&quot;,&quot;hid&quot;:&quot;\u305d\u306e\u4ed6\u306e\u60c5\u5831&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:5,&quot;range&quot;:&quot;1232-&quot;} --></div>
+</body>
+</html>

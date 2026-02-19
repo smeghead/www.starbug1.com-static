@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>en:install:setup</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="en,install,setup"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="../../../../en/install/setup%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../feed.php%3Fmode=list&amp;ns=en:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="setup.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../raw/en/install/setup"/>
+<link rel="stylesheet" type="text/css" href="../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='en:install';var JSINFO = {"id":"en:install:setup","namespace":"en:install","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="setup.html#how_to_setup_starbug1">How to setup Starbug1</a></div>
+<ul class="toc">
+<li class="clear">
+<ul class="toc">
+<li class="level3"><div class="li"><a href="setup.html#deploy">Deploy</a></div></li>
+<li class="level3"><div class="li"><a href="setup.html#web_server_settings_below_for_apache">Web Server Settings(below for apache)</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="how_to_setup_starbug1">How to setup Starbug1</h1>
+<div class="level1">
+
+<p>
+Completed compile Starbug1, put them under Web Server&#039;s DocumentRoot Directory.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;How to setup Starbug1&quot;,&quot;hid&quot;:&quot;how_to_setup_starbug1&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-117&quot;} -->
+<h3 class="sectionedit2" id="deploy">Deploy</h3>
+<div class="level3">
+
+<p>
+copy the compiled dist/starbug1 directory to under web server&#039;s DocumentRoot directory.
+</p>
+<pre class="code">$ su
+# cp -r dist/starbug1 /var/www/</pre>
+
+<p>
+change directory /var/www/starbug1 owner to CGI execute user.
+</p>
+<pre class="code"># cd /var/www
+# chown -R www-data:www-data starbug1</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Deploy&quot;,&quot;hid&quot;:&quot;deploy&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;118-414&quot;} -->
+<h3 class="sectionedit3" id="web_server_settings_below_for_apache">Web Server Settings(below for apache)</h3>
+<div class="level3">
+
+<p>
+Need to edit .htaccess file, so make AllowOverride &#039;All&#039; on apache setting file.
+Edit /var/www/starbug1/.htaccess file.
+</p>
+
+<p>
+dot.htaccess may be exists. rename and edit.
+</p>
+<pre class="code sh">$ cd /var/www/starbug1/
+$ cp dot.htaccess .htaccess </pre>
+<pre class="code apache"><span class="co1"># Error Page</span>
+<span class="kw1">ErrorDocument</span> <span class="nu0">500</span> /starbug1/error.html
+<span class="co1"># admit to execute cgi</span>
+<span class="kw1">AddHandler</span> cgi-<span class="kw1">script</span> cgi
+<span class="kw1">Options</span> +ExecCGI
+<span class="co1"># default page name</span>
+<span class="kw1">DirectoryIndex</span> index.cgi
+&nbsp;
+<span class="co1"># general users settings</span>
+&lt;<span class="kw3">Files</span> index.cgi&gt;
+    <span class="kw1">AuthName</span>      <span class="st0">&quot;authentication for guest user.&quot;</span>
+    <span class="kw1">AuthType</span>      Basic
+    <span class="kw1">AuthUserFile</span>  /etc/starbug1/.guest-passwd
+    <span class="kw1">Require</span>       valid-<span class="kw1">user</span>
+&lt;/<span class="kw3">Files</span>&gt;
+&nbsp;
+<span class="co1"># admin users settings</span>
+&lt;<span class="kw3">Files</span> admin.cgi&gt;
+    <span class="kw1">AuthName</span>      <span class="st0">&quot;authentication for administrator user.&quot;</span>
+    <span class="kw1">AuthType</span>      Basic
+    <span class="kw1">AuthUserFile</span>  /etc/starbug1/.admin-passwd
+    <span class="kw1">Require</span>       valid-<span class="kw1">user</span>
+&lt;/<span class="kw3">Files</span>&gt;
+<span class="co1"># hide files</span>
+&lt;<span class="kw3">FilesMatch</span> <span class="st0">&quot;.*&quot;</span>&gt;
+  <span class="kw1">deny</span> from <span class="kw2">all</span>
+&lt;/<span class="kw3">FilesMatch</span>&gt;
+<span class="co1"># able to view files</span>
+&lt;<span class="kw3">FilesMatch</span> <span class="st0">&quot;(^$|<span class="es0">\.</span>cgi$|<span class="es0">\.</span>jpg$|<span class="es0">\.</span>png$|<span class="es0">\.</span>gif$|<span class="es0">\.</span>css$|<span class="es0">\.</span>js$)&quot;</span>&gt;
+  <span class="kw1">allow</span> from <span class="kw2">all</span>
+&lt;/<span class="kw3">FilesMatch</span>&gt;</pre>
+<ul>
+<li class="level1"><div class="li"> Error Page</div>
+</li>
+</ul>
+
+<p>
+Set <abbr title="Uniform Resource Locator">URL</abbr> of error page. 
+</p>
+<ul>
+<li class="level1"><div class="li"> admit to execute cgi</div>
+</li>
+</ul>
+
+<p>
+according to apache settings, It occurred Internal Server Error. If got error, try it comment out.
+</p>
+<ul>
+<li class="level1"><div class="li"> default page name</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Basic certification</div>
+</li>
+</ul>
+
+<p>
+Open <a href="http://www.example.com/starbug1/index.cgi" class="urlextern" title="http://www.example.com/starbug1/index.cgi" rel="nofollow">http://www.example.com/starbug1/index.cgi</a>. (change &#039;www.example.com&#039; to your server name)
+</p>
+
+<p>
+If you could see top page, installation has completed.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Web Server Settings(below for apache)&quot;,&quot;hid&quot;:&quot;web_server_settings_below_for_apache&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:3,&quot;range&quot;:&quot;415-&quot;} --></div>
+</body>
+</html>

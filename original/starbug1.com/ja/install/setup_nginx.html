@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="ja,install,setup_nginx"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../index.html"/>
+<link rel="contents" href="setup_nginx%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../feed.php%3Fmode=list&amp;ns=ja:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="../../_export/xhtml/ja/install/setup_nginx.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../_export/raw/ja/install/setup_nginx"/>
+<link rel="canonical" href="http://127.0.0.1:81/ja/install/setup_nginx"/>
+<link rel="stylesheet" type="text/css" href="../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='ja:install';var JSINFO = {"id":"ja:install:setup_nginx","namespace":"ja:install","ACT":"show","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
+        <title>Starbug1 Official WebSite - ja:install:setup_nginx</title>
+        <script type="text/javascript">
+		//Open blank window
+		window.onload = function() {
+		  var node_a = document.getElementsByTagName('a');
+		  for (var i in node_a) {
+		    if (node_a[i].className == 'blank') {
+		      node_a[i].onclick = function() {
+			window.open(this.href, '', '');
+			return false;
+		      };
+		    }
+		  }
+		};
+	</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19259553-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </head>
+    <body>
+        <div id="header">
+                <h1><a href="../../start.html"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[ALT+H]"><img src="../../lib/tpl/sandy/images/banner_840.png" alt="Starbug1"/></a></h1>
+                <div id="lang">
+                        <ul>
+                                <!--<li class="fr"><a hreflang="fr" href="http://fr.flashsandy.org/ja/install/setup_nginx"></a></li>
+                                -->
+                                <li class="ja"><a hreflang="ja" href="../start.html">Japanese</a></li>
+                                <li class="en"><a hreflang="en" href="../../en/start.html">English</a></li>
+                                <li class="zh"><a hreflang="zh" href="../../zh/start.html">Chinese</a></li>
+                        </ul>
+                </div>
+		<div id="twitter">
+		    <a href="http://twitter.com/home?status=http%3A%2F%2Fstarbug1.com%2F%20Starbug1%20-Bug%20Tracking%20System." title="tweet this!" class="blank" rel="nofollow">
+		      <img id="twitter-image" src="../../lib/tpl/sandy/images/t.png" alt="Tweet This."/>
+		    </a>
+		</div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="../start.html" >Top</a></li>
+<li><a href="../demo.html" >Demo</a></li>
+<li><a href="../download.html" >Download</a></li>
+<li><a href="../install.html" >Install</a></li>
+<li><a href="../tutorials.html" >Tutorials</a></li>
+            </ul>
+	    &nbsp;&nbsp;
+            <a href="http://b.hatena.ne.jp/append?http://starbug1.com/">
+                    <img class="sbmicon" src="../../lib/tpl/sandy/images/b_entry.gif" width="16" height="12" alt="" title="" style="vertical-align: middle; border: none;" />
+            </a>
+            <a href="http://b.hatena.ne.jp/entry/http://starbug1.com/">
+                     <img src="http://b.hatena.ne.jp/entry/image/http://starbug1.com/" alt="hatena bookmark - Starbug1 Official Website" title="hatena bookmark - Starbug1 Official Website" style="vertical-align: middle; border: none;" />
+            </a>
+	    &nbsp;&nbsp;
+
+	    <a href="http://delicious.com/save?url=http://starbug1.com/&amp;title=Starbug1%20Official%20WebSite%20-%20start" title="add to delicious.com"> 
+	    <img class="sbmicon" src="../../lib/tpl/sandy/images/delicious.gif" alt="add to delicious.com" style="vertical-align: middle; border: none;" /> 
+	    </a>
+	    &nbsp;&nbsp;
+	    <a href="http://clip.livedoor.com/clip/add?jump=myclip&amp;link=http://starbug1.com/" title="add to livedoor.clip"> 
+	    <img class="sbmicon" src="../../lib/tpl/sandy/images/livedoor.gif" alt="add to livedoor.clip" style="vertical-align: middle; border: none;" /> 
+	    <img src="http://image.clip.livedoor.com/counter/http://starbug1.com/" alt="add to livedoor.clip" style="vertical-align: middle; border: none;" /> 
+	    </a> 
+        </div>
+                <div id="body">
+            <div id="body_top"></div>
+            <p class="youarehere"></p>
+                                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="setup_nginx.html#インストール方法_nginx">インストール方法(nginx)</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="setup_nginx.html#starbug1">Starbug1</a></div></li>
+<li class="level2"><div class="li"><a href="setup_nginx.html#fastcgi">fastcgi</a></div></li>
+<li class="level2"><div class="li"><a href="setup_nginx.html#ラッパーの用意">ラッパーの用意</a></div></li>
+<li class="level2"><div class="li"><a href="setup_nginx.html#ラッパーの起動">ラッパーの起動</a></div></li>
+<li class="level2"><div class="li"><a href="setup_nginx.html#nginx_のサイト定義追加">nginx のサイト定義追加</a></div></li>
+<li class="level2"><div class="li"><a href="setup_nginx.html#サイトの有効化">サイトの有効化</a></div></li>
+<li class="level2"><div class="li"><a href="setup_nginx.html#nginx再起動">nginx再起動</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="インストール方法_nginx">インストール方法(nginx)</h1>
+<div class="level1">
+
+</div>
+
+<h4 id="参考">参考</h4>
+<div class="level4">
+
+<p>
+* &lt;a href=“<a href="http://wiki.nginx.org/NginxSimpleCGI" class="urlextern" title="http://wiki.nginx.org/NginxSimpleCGI" rel="nofollow">http://wiki.nginx.org/NginxSimpleCGI</a>” target=“_blank”&gt;Simple CGI&lt;/a&gt;
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="starbug1">Starbug1</h2>
+<div class="level2">
+
+<p>
+* Starbug1をダウンロードして、コンパイルして/var/vhosts/demo.starbug1.com/starbug1に配置する。
+</p>
+<pre class="code bash">$ <span class="kw2">tar</span> zxf starbug1-1.6.00.tar.gz
+$ <span class="kw3">cd</span> starbug1
+$ <span class="kw2">make</span> <span class="re2">INITIAL_LOCALE</span>=ja_JP static webapp
+$ <span class="kw2">sudo</span> <span class="kw2">mkdir</span> <span class="sy0">/</span>var<span class="sy0">/</span>vhosts<span class="sy0">/</span>demo.starbug1.com
+$ <span class="kw2">sudo</span> <span class="kw2">cp</span> <span class="re5">-r</span> dist<span class="sy0">/</span>starbug1 <span class="sy0">/</span>var<span class="sy0">/</span>vhosts<span class="sy0">/</span>demo.starbug1.com<span class="sy0">/</span>
+$ <span class="kw2">sudo</span> <span class="kw2">chown</span> <span class="re5">-R</span> www-data:www-data <span class="sy0">/</span>var<span class="sy0">/</span>vhosts<span class="sy0">/</span>demo.starbug1.com<span class="sy0">/</span>starbug1</pre>
+
+</div>
+
+<h2 class="sectionedit3" id="fastcgi">fastcgi</h2>
+<div class="level2">
+
+<p>
+* 必要なモジュールのインストール
+</p>
+<pre class="code bash"><span class="co4">$ </span><span class="kw2">sudo</span> <span class="kw2">apt-get install</span> nginx libfcgi-perl libfcgi-procmanager-perl spawn-fcgi</pre>
+
+</div>
+
+<h2 class="sectionedit4" id="ラッパーの用意">ラッパーの用意</h2>
+<div class="level2">
+
+<p>
+-    /usr/local/bin/cgiwrap-fcgi.pl
+</p>
+<pre class="code perl"><span class="co1">#!/usr/bin/perl</span>
+<span class="kw2">use</span> FCGI<span class="sy0">;</span>
+<span class="kw2">use</span> Socket<span class="sy0">;</span>
+<span class="kw2">use</span> FCGI<span class="sy0">::</span><span class="me2">ProcManager</span><span class="sy0">;</span>
+<span class="kw2">sub</span> <a href="http://perldoc.perl.org/functions/shutdown.html"><span class="kw3">shutdown</span></a> <span class="br0">&#123;</span> FCGI<span class="sy0">::</span><span class="me2">CloseSocket</span><span class="br0">&#40;</span><span class="re0">$socket</span><span class="br0">&#41;</span><span class="sy0">;</span> <a href="http://perldoc.perl.org/functions/exit.html"><span class="kw3">exit</span></a><span class="sy0">;</span> <span class="br0">&#125;</span>
+<span class="kw2">sub</span> restart  <span class="br0">&#123;</span> FCGI<span class="sy0">::</span><span class="me2">CloseSocket</span><span class="br0">&#40;</span><span class="re0">$socket</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="re0">&amp;main</span><span class="sy0">;</span> <span class="br0">&#125;</span>
+<span class="kw2">use</span> sigtrap <span class="st_h">'handler'</span><span class="sy0">,</span> \<span class="sy0">&amp;</span><a href="http://perldoc.perl.org/functions/shutdown.html"><span class="kw3">shutdown</span></a><span class="sy0">,</span> <span class="st_h">'normal-signals'</span><span class="sy0">;</span>
+<span class="kw2">use</span> sigtrap <span class="st_h">'handler'</span><span class="sy0">,</span> <span class="re0">\&amp;restart</span><span class="sy0">,</span>  <span class="st_h">'HUP'</span><span class="sy0">;</span>
+<a href="http://perldoc.perl.org/functions/require.html"><span class="kw3">require</span></a> <span class="st_h">'syscall.ph'</span><span class="sy0">;</span>
+<span class="kw2">use</span> POSIX <a href="http://perldoc.perl.org/functions/qw.html"><span class="kw3">qw</span></a><span class="br0">&#40;</span>setsid<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+END<span class="br0">&#40;</span><span class="br0">&#41;</span>   <span class="br0">&#123;</span> <span class="br0">&#125;</span>
+<span class="kw2">BEGIN</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> <span class="br0">&#125;</span>
+<span class="br0">&#123;</span>
+  <a href="http://perldoc.perl.org/functions/no.html"><span class="kw3">no</span></a> warnings<span class="sy0">;</span>
+  <span class="re0">*CORE</span><span class="sy0">::</span><span class="me2">GLOBAL</span><span class="sy0">::</span><a href="http://perldoc.perl.org/functions/exit.html"><span class="kw3">exit</span></a> <span class="sy0">=</span> <span class="kw2">sub</span> <span class="br0">&#123;</span> <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="st0">&quot;fakeexit<span class="es0">\n</span>rc=&quot;</span> <span class="sy0">.</span> <a href="http://perldoc.perl.org/functions/shift.html"><span class="kw3">shift</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span> <span class="br0">&#125;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span><span class="sy0">;</span>
+&nbsp;
+<a href="http://perldoc.perl.org/functions/eval.html"><span class="kw3">eval</span></a> <a href="http://perldoc.perl.org/functions/q.html"><span class="kw3">q</span></a><span class="br0">&#123;</span><a href="http://perldoc.perl.org/functions/exit.html"><span class="kw3">exit</span></a><span class="br0">&#125;</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="co5">$@</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <a href="http://perldoc.perl.org/functions/exit.html"><span class="kw3">exit</span></a> <span class="kw1">unless</span> <span class="co5">$@</span> <span class="sy0">=~</span> <span class="co2">/^fakeexit/</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+<span class="re0">&amp;main</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw2">sub</span> daemonize<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <a href="http://perldoc.perl.org/functions/chdir.html"><span class="kw3">chdir</span></a> <span class="st_h">'/'</span> <span class="kw1">or</span> <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="st0">&quot;Can't chdir to /: $!&quot;</span><span class="sy0">;</span>
+  <a href="http://perldoc.perl.org/functions/defined.html"><span class="kw3">defined</span></a><span class="br0">&#40;</span> <span class="kw1">my</span> <span class="re0">$pid</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/fork.html"><span class="kw3">fork</span></a> <span class="br0">&#41;</span> <span class="kw1">or</span> <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="st0">&quot;Can't fork: $!&quot;</span><span class="sy0">;</span>
+  <a href="http://perldoc.perl.org/functions/exit.html"><span class="kw3">exit</span></a> <span class="kw1">if</span> <span class="re0">$pid</span><span class="sy0">;</span>
+  setsid<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw1">or</span> <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="st0">&quot;Can't start a new session: $!&quot;</span><span class="sy0">;</span>
+  <a href="http://perldoc.perl.org/functions/umask.html"><span class="kw3">umask</span></a> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw2">sub</span> main <span class="br0">&#123;</span>
+  <span class="re0">$proc_manager</span> <span class="sy0">=</span> FCGI<span class="sy0">::</span><span class="me2">ProcManager</span><span class="sy0">-&gt;</span><span class="kw2">new</span><span class="br0">&#40;</span> <span class="br0">&#123;</span>n_processes <span class="sy0">=&gt;</span> <span class="nu0">5</span><span class="br0">&#125;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="re0">$socket</span> <span class="sy0">=</span> FCGI<span class="sy0">::</span><span class="me2">OpenSocket</span><span class="br0">&#40;</span> <span class="st0">&quot;/var/run/nginx/cgiwrap-dispatch.sock&quot;</span><span class="sy0">,</span> <span class="nu0">10</span> <span class="br0">&#41;</span>
+  <span class="sy0">;</span> <span class="co1">#use UNIX sockets - user running this script must have w access to the 'nginx' folder!!</span>
+  <span class="re0">$request</span> <span class="sy0">=</span>
+  FCGI<span class="sy0">::</span><span class="me2">Request</span><span class="br0">&#40;</span> \<span class="sy0">*</span><span class="kw2">STDIN</span><span class="sy0">,</span> \<span class="sy0">*</span><span class="kw2">STDOUT</span><span class="sy0">,</span> \<span class="sy0">*</span><span class="kw2">STDERR</span><span class="sy0">,</span> <span class="re0">\%req_params</span><span class="sy0">,</span> <span class="re0">$socket</span><span class="sy0">,</span>
+  <span class="re0">&amp;FCGI</span><span class="sy0">::</span><span class="me2">FAIL_ACCEPT_ON_INTR</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="re0">$proc_manager</span><span class="sy0">-&gt;</span><span class="me1">pm_manage</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$request</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> request_loop<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#125;</span>
+  FCGI<span class="sy0">::</span><span class="me2">CloseSocket</span><span class="br0">&#40;</span><span class="re0">$socket</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw2">sub</span> request_loop <span class="br0">&#123;</span>
+  <span class="kw1">while</span> <span class="br0">&#40;</span> <span class="re0">$request</span><span class="sy0">-&gt;</span><span class="me1">Accept</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">&gt;=</span> <span class="nu0">0</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <span class="re0">$proc_manager</span><span class="sy0">-&gt;</span><span class="me1">pm_pre_dispatch</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+    <span class="co1">#processing any STDIN input from WebServer (for CGI-POST actions)</span>
+    <span class="re0">$stdin_passthrough</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span>
+    <span class="br0">&#123;</span> <a href="http://perldoc.perl.org/functions/no.html"><span class="kw3">no</span></a> warnings<span class="sy0">;</span> <span class="re0">$req_len</span> <span class="sy0">=</span> <span class="nu0">0</span> <span class="sy0">+</span> <span class="re0">$req_params</span><span class="br0">&#123;</span><span class="st_h">'CONTENT_LENGTH'</span><span class="br0">&#125;</span><span class="sy0">;</span> <span class="br0">&#125;</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="br0">&#40;</span> <span class="re0">$req_params</span><span class="br0">&#123;</span><span class="st_h">'REQUEST_METHOD'</span><span class="br0">&#125;</span> <span class="kw1">eq</span> <span class="st_h">'POST'</span> <span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#40;</span> <span class="re0">$req_len</span> <span class="sy0">!=</span> <span class="nu0">0</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+      <span class="kw1">my</span> <span class="re0">$bytes_read</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+      <span class="kw1">while</span> <span class="br0">&#40;</span> <span class="re0">$bytes_read</span> <span class="sy0">&lt;</span> <span class="re0">$req_len</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="kw1">my</span> <span class="re0">$data</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span>
+        <span class="kw1">my</span> <span class="re0">$bytes</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/read.html"><span class="kw3">read</span></a><span class="br0">&#40;</span> <span class="kw2">STDIN</span><span class="sy0">,</span> <span class="re0">$data</span><span class="sy0">,</span> <span class="br0">&#40;</span> <span class="re0">$req_len</span> <span class="sy0">-</span> <span class="re0">$bytes_read</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="kw1">last</span> <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$bytes</span> <span class="sy0">==</span> <span class="nu0">0</span> <span class="sy0">||</span> <span class="sy0">!</span><a href="http://perldoc.perl.org/functions/defined.html"><span class="kw3">defined</span></a><span class="br0">&#40;</span><span class="re0">$bytes</span><span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="re0">$stdin_passthrough</span> <span class="sy0">.=</span> <span class="re0">$data</span><span class="sy0">;</span>
+        <span class="re0">$bytes_read</span> <span class="sy0">+=</span> <span class="re0">$bytes</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>
+&nbsp;
+    <span class="co1">#running the cgi app</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>
+      <span class="br0">&#40;</span> <span class="sy0">-</span>x <span class="re0">$req_params</span><span class="br0">&#123;</span>SCRIPT_FILENAME<span class="br0">&#125;</span> <span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span>    <span class="co1">#can I execute this?</span>
+      <span class="br0">&#40;</span> <span class="sy0">-</span><a href="http://perldoc.perl.org/functions/s.html"><span class="kw3">s</span></a> <span class="re0">$req_params</span><span class="br0">&#123;</span>SCRIPT_FILENAME<span class="br0">&#125;</span> <span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span>    <span class="co1">#Is this file empty?</span>
+      <span class="br0">&#40;</span> <span class="sy0">-</span>r <span class="re0">$req_params</span><span class="br0">&#123;</span>SCRIPT_FILENAME<span class="br0">&#125;</span> <span class="br0">&#41;</span>       <span class="co1">#can I read this file?</span>
+    <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+      <a href="http://perldoc.perl.org/functions/pipe.html"><span class="kw3">pipe</span></a><span class="br0">&#40;</span> CHILD_RD<span class="sy0">,</span>   PARENT_WR <span class="br0">&#41;</span><span class="sy0">;</span>
+      <a href="http://perldoc.perl.org/functions/pipe.html"><span class="kw3">pipe</span></a><span class="br0">&#40;</span> PARENT_ERR<span class="sy0">,</span> CHILD_ERR <span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="kw1">my</span> <span class="re0">$pid</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/open.html"><span class="kw3">open</span></a><span class="br0">&#40;</span> CHILD_O<span class="sy0">,</span> <span class="st0">&quot;-|&quot;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="kw1">unless</span> <span class="br0">&#40;</span> <a href="http://perldoc.perl.org/functions/defined.html"><span class="kw3">defined</span></a><span class="br0">&#40;</span><span class="re0">$pid</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a><span class="br0">&#40;</span><span class="st0">&quot;Content-type: text/plain<span class="es0">\r</span><span class="es0">\n</span><span class="es0">\r</span><span class="es0">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a> <span class="st0">&quot;Error: CGI app returned no output - Executing $req_params{SCRIPT_FILENAME} failed !<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+        <span class="kw1">next</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+      <span class="re0">$oldfh</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/select.html"><span class="kw3">select</span></a><span class="br0">&#40;</span>PARENT_ERR<span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="co5">$|</span>     <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+      <a href="http://perldoc.perl.org/functions/select.html"><span class="kw3">select</span></a><span class="br0">&#40;</span>CHILD_O<span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="co5">$|</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+      <a href="http://perldoc.perl.org/functions/select.html"><span class="kw3">select</span></a><span class="br0">&#40;</span><span class="re0">$oldfh</span><span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$pid</span> <span class="sy0">&gt;</span> <span class="nu0">0</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a><span class="br0">&#40;</span>CHILD_RD<span class="br0">&#41;</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a><span class="br0">&#40;</span>CHILD_ERR<span class="br0">&#41;</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a> PARENT_WR <span class="re0">$stdin_passthrough</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a><span class="br0">&#40;</span>PARENT_WR<span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="re0">$rin</span> <span class="sy0">=</span> <span class="re0">$rout</span> <span class="sy0">=</span> <span class="re0">$ein</span> <span class="sy0">=</span> <span class="re0">$eout</span> <span class="sy0">=</span> <span class="st_h">''</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$rin</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>CHILD_O<span class="br0">&#41;</span><span class="sy0">,</span>    <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$rin</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>PARENT_ERR<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+        <span class="re0">$ein</span>    <span class="sy0">=</span> <span class="re0">$rin</span><span class="sy0">;</span>
+        <span class="re0">$nfound</span> <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+&nbsp;
+        <span class="kw1">while</span> <span class="br0">&#40;</span> <span class="re0">$nfound</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/select.html"><span class="kw3">select</span></a><span class="br0">&#40;</span> <span class="re0">$rout</span> <span class="sy0">=</span> <span class="re0">$rin</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/undef.html"><span class="kw3">undef</span></a><span class="sy0">,</span> <span class="re0">$ein</span> <span class="sy0">=</span> <span class="re0">$eout</span><span class="sy0">,</span> <span class="nu0">10</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+          <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="st0">&quot;$!&quot;</span> <span class="kw1">unless</span> <span class="re0">$nfound</span> <span class="sy0">!=</span> <span class="sy0">-</span><span class="nu0">1</span><span class="sy0">;</span>
+          <span class="re0">$r1</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$rout</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>PARENT_ERR<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="sy0">;</span>
+          <span class="re0">$r2</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$rout</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>CHILD_O<span class="br0">&#41;</span><span class="sy0">,</span>    <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="sy0">;</span>
+          <span class="re0">$e1</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$eout</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>PARENT_ERR<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="sy0">;</span>
+          <span class="re0">$e2</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$eout</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>CHILD_O<span class="br0">&#41;</span><span class="sy0">,</span>    <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="sy0">;</span>
+&nbsp;
+          <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$r1</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+            <span class="kw1">while</span> <span class="br0">&#40;</span> <span class="re0">$bytes</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/read.html"><span class="kw3">read</span></a><span class="br0">&#40;</span> PARENT_ERR<span class="sy0">,</span> <span class="re0">$errbytes</span><span class="sy0">,</span> <span class="nu0">4096</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+              <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a> <span class="kw2">STDERR</span> <span class="re0">$errbytes</span><span class="sy0">;</span>
+            <span class="br0">&#125;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span><span class="co5">$!</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+              <span class="re0">$err</span> <span class="sy0">=</span> <span class="co5">$!</span><span class="sy0">;</span>
+              <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="co5">$!</span><span class="sy0">;</span>
+              <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$rin</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>PARENT_ERR<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">=</span> <span class="nu0">0</span>
+              <span class="kw1">unless</span> <span class="br0">&#40;</span> <span class="re0">$err</span> <span class="sy0">==</span> EINTR <span class="kw1">or</span> <span class="re0">$err</span> <span class="sy0">==</span> EAGAIN <span class="br0">&#41;</span><span class="sy0">;</span>
+            <span class="br0">&#125;</span>
+          <span class="br0">&#125;</span>
+          <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$r2</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+            <span class="kw1">while</span> <span class="br0">&#40;</span> <span class="re0">$bytes</span> <span class="sy0">=</span> <a href="http://perldoc.perl.org/functions/read.html"><span class="kw3">read</span></a><span class="br0">&#40;</span> CHILD_O<span class="sy0">,</span> <span class="re0">$s</span><span class="sy0">,</span> <span class="nu0">4096</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+              <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a> <span class="re0">$s</span><span class="sy0">;</span>
+            <span class="br0">&#125;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="sy0">!</span><a href="http://perldoc.perl.org/functions/defined.html"><span class="kw3">defined</span></a><span class="br0">&#40;</span><span class="re0">$bytes</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+              <span class="re0">$err</span> <span class="sy0">=</span> <span class="co5">$!</span><span class="sy0">;</span>
+              <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a> <span class="co5">$!</span><span class="sy0">;</span>
+              <a href="http://perldoc.perl.org/functions/vec.html"><span class="kw3">vec</span></a><span class="br0">&#40;</span> <span class="re0">$rin</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>CHILD_O<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span> <span class="br0">&#41;</span> <span class="sy0">=</span> <span class="nu0">0</span>
+              <span class="kw1">unless</span> <span class="br0">&#40;</span> <span class="re0">$err</span> <span class="sy0">==</span> EINTR <span class="kw1">or</span> <span class="re0">$err</span> <span class="sy0">==</span> EAGAIN <span class="br0">&#41;</span><span class="sy0">;</span>
+            <span class="br0">&#125;</span>
+          <span class="br0">&#125;</span>
+          <span class="kw1">last</span> <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$e1</span> <span class="sy0">||</span> <span class="re0">$e2</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a> CHILD_RD<span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a> PARENT_ERR<span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/waitpid.html"><span class="kw3">waitpid</span></a><span class="br0">&#40;</span> <span class="re0">$pid</span><span class="sy0">,</span> <span class="nu0">0</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span>
+        <span class="kw1">foreach</span> <span class="re0">$key</span> <span class="br0">&#40;</span> <a href="http://perldoc.perl.org/functions/keys.html"><span class="kw3">keys</span></a> <span class="re0">%req_params</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+          <span class="re0">$ENV</span><span class="br0">&#123;</span><span class="re0">$key</span><span class="br0">&#125;</span> <span class="sy0">=</span> <span class="re0">$req_params</span><span class="br0">&#123;</span><span class="re0">$key</span><span class="br0">&#125;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+&nbsp;
+        <span class="co1"># cd to the script's local directory</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$req_params</span><span class="br0">&#123;</span>SCRIPT_FILENAME<span class="br0">&#125;</span> <span class="sy0">=~</span> <span class="co2">/^(.*)\/[^\/] +$/</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+          <a href="http://perldoc.perl.org/functions/chdir.html"><span class="kw3">chdir</span></a> <span class="co3">$1</span><span class="sy0">;</span> 
+        <span class="br0">&#125;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a><span class="br0">&#40;</span>PARENT_WR<span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="co1">#close(PARENT_ERR);</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a><span class="br0">&#40;</span><span class="kw2">STDIN</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/close.html"><span class="kw3">close</span></a><span class="br0">&#40;</span><span class="kw2">STDERR</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+        <span class="co1">#fcntl(CHILD_RD, F_DUPFD, 0);</span>
+        <a href="http://perldoc.perl.org/functions/syscall.html"><span class="kw3">syscall</span></a><span class="br0">&#40;</span> <span class="re0">&amp;SYS_dup2</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>CHILD_RD<span class="br0">&#41;</span><span class="sy0">,</span>  <span class="nu0">0</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/syscall.html"><span class="kw3">syscall</span></a><span class="br0">&#40;</span> <span class="re0">&amp;SYS_dup2</span><span class="sy0">,</span> <a href="http://perldoc.perl.org/functions/fileno.html"><span class="kw3">fileno</span></a><span class="br0">&#40;</span>CHILD_ERR<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">2</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+        <span class="co1">#open(STDIN, &quot;&lt;&amp;CHILD_RD&quot;);</span>
+        <a href="http://perldoc.perl.org/functions/exec.html"><span class="kw3">exec</span></a><span class="br0">&#40;</span> <span class="re0">$req_params</span><span class="br0">&#123;</span>SCRIPT_FILENAME<span class="br0">&#125;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+        <a href="http://perldoc.perl.org/functions/die.html"><span class="kw3">die</span></a><span class="br0">&#40;</span><span class="st0">&quot;exec failed&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span>
+      <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a><span class="br0">&#40;</span><span class="st0">&quot;Content-type: text/plain<span class="es0">\r</span><span class="es0">\n</span><span class="es0">\r</span><span class="es0">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+      <a href="http://perldoc.perl.org/functions/print.html"><span class="kw3">print</span></a> <span class="st0">&quot;Error: No such CGI app - $req_params{SCRIPT_FILENAME} may not exist or is not executable by this process.<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+    <span class="br0">&#125;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+
+</div>
+
+<h2 class="sectionedit5" id="ラッパーの起動">ラッパーの起動</h2>
+<div class="level2">
+<pre class="code bash">$ <span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>bin<span class="sy0">/</span>cgiwrap-fcgi.pl
+$ <span class="kw2">mkdir</span> <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>nginx<span class="sy0">/</span>
+$ <span class="kw2">chown</span> www-data:www-data <span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>nginx<span class="sy0">/</span>
+$ <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>bin<span class="sy0">/</span>cgiwrap-fcgi.pl <span class="sy0">&amp;&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null <span class="sy0">&amp;</span></pre>
+
+</div>
+
+<h2 class="sectionedit6" id="nginx_のサイト定義追加">nginx のサイト定義追加</h2>
+<div class="level2">
+
+<p>
+* /etc/nginx/sites-available/demo.starbug1.com
+</p>
+<pre class="code nginx"><a href="http://wiki.nginx.org/NginxHttpCoreModule#server"><span class="kw3">server</span></a> <span class="br0">&#123;</span>
+	<a href="http://wiki.nginx.org/NginxHttpCoreModule#server_name"><span class="kw3">server_name</span></a>	demo.starbug1.com<span class="sy0">;</span>
+	<a href="http://wiki.nginx.org/NginxHttpCoreModule#listen"><span class="kw3">listen</span></a> <span class="nu0">80</span><span class="sy0">;</span>
+&nbsp;
+	<a href="http://wiki.nginx.org/NginxHttpCoreModule#root"><span class="kw3">root</span></a>	 /var/vhosts/demo.starbug1.com<span class="sy0">;</span>
+	<a href="http://wiki.nginx.org/NginxHttpIndexModule#index"><span class="kw15">index</span></a>	<a href="http://wiki.nginx.org/NginxHttpIndexModule#index"><span class="kw15">index</span></a>.cgi <a href="http://wiki.nginx.org/NginxHttpIndexModule#index"><span class="kw15">index</span></a>.html<span class="sy0">;</span>
+&nbsp;
+	<a href="http://wiki.nginx.org/NginxHttpCoreModule#location"><span class="kw3">location</span></a> / <span class="br0">&#123;</span>
+		<a href="http://wiki.nginx.org/NginxHttpRewriteModule#if"><span class="kw24">if</span></a> <span class="br0">&#40;</span>-e <span class="re0">$request_filename</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		    <a href="http://wiki.nginx.org/NginxHttpRewriteModule#rewrite"><span class="kw24">rewrite</span></a> <a href="http://wiki.nginx.org/NginxHttpIndexModule#index"><span class="kw15">index</span></a>.cgi /<a href="http://wiki.nginx.org/NginxHttpIndexModule#index"><span class="kw15">index</span></a>.cgi last<span class="sy0">;</span>
+		    <a href="http://wiki.nginx.org/NginxHttpRewriteModule#rewrite"><span class="kw24">rewrite</span></a> admin.cgi /admin.cgi last<span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+	<a href="http://wiki.nginx.org/NginxHttpCoreModule#location"><span class="kw3">location</span></a> <span class="sy0">~</span> \.cgi<span class="br0">&#40;</span>$|/<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<a href="http://wiki.nginx.org/NginxHttpGzipModule#gzip"><span class="kw13">gzip</span></a> off<span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_pass"><span class="kw11">fastcgi_pass</span></a>   unix:/var/run/nginx/cgiwrap-dispatch.sock<span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  GATEWAY_INTERFACE  CGI/<span class="nu0">1.1</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SERVER_SOFTWARE    nginx<span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  QUERY_STRING       <span class="re0">$query_string</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  REQUEST_METHOD     <span class="re0">$request_method</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  CONTENT_TYPE       <span class="re0">$content_type</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  CONTENT_LENGTH     <span class="re0">$content_length</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  REQUEST_URI        <span class="re0">$request_uri</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  DOCUMENT_URI       <span class="re0">$document_uri</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  DOCUMENT_ROOT      <span class="re0">$document_root</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SERVER_PROTOCOL    <span class="re0">$server_protocol</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  REMOTE_ADDR        <span class="re0">$remote_addr</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  REMOTE_PORT        <span class="re0">$remote_port</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SERVER_ADDR        <span class="re0">$server_addr</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SERVER_PORT        <span class="re0">$server_port</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SERVER_NAME        <span class="re0">$server_name</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_split_path_info"><span class="kw11">fastcgi_split_path_info</span></a> ^<span class="br0">&#40;</span><span class="br0">&#40;</span>?U<span class="br0">&#41;</span>.+\.cgi<span class="br0">&#41;</span><span class="br0">&#40;</span>/?.+<span class="br0">&#41;</span>$<span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SCRIPT_FILENAME    <span class="re0">$document_root</span><span class="re0">$fastcgi_script_name</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  SCRIPT_NAME        <span class="re0">$fastcgi_script_name</span><span class="sy0">;</span>
+		<a href="http://wiki.nginx.org/NginxHttpFcgiModule#fastcgi_param"><span class="kw11">fastcgi_param</span></a>  PATH_INFO          <span class="re0">$fastcgi_path_info</span><span class="sy0">;</span>
+&nbsp;
+	<span class="br0">&#125;</span>
+&nbsp;
+	<a href="http://wiki.nginx.org/NginxHttpLogModule#access_log"><span class="kw20">access_log</span></a>  /var/log/nginx/demo.starbug1.com.access.log combined<span class="sy0">;</span>
+	<a href="http://wiki.nginx.org/CoreModule#error_log"><span class="kw1">error_log</span></a>  /var/log/nginx/demo.starbug1.com.error.log<span class="sy0">;</span>
+<span class="br0">&#125;</span></pre>
+
+</div>
+
+<h2 class="sectionedit7" id="サイトの有効化">サイトの有効化</h2>
+<div class="level2">
+<pre class="code bash">$ <span class="kw3">cd</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nginx<span class="sy0">/</span>sites-enabled
+$ <span class="kw2">sudo</span> <span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>etc<span class="sy0">/</span>nginx<span class="sy0">/</span>sites-available<span class="sy0">/</span>demo.starbug1.com</pre>
+
+</div>
+
+<h2 class="sectionedit8" id="nginx再起動">nginx再起動</h2>
+<div class="level2">
+<pre class="code bash"><span class="co4">$ </span><span class="kw2">sudo</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>nginx restart</pre>
+
+<p>
+これで、Starbug1を <a href="http://demo.starbug1.com/starbug1/" class="urlextern" title="http://demo.starbug1.com/starbug1/" rel="nofollow">http://demo.starbug1.com/starbug1/</a> にアクセスして、nginxで動かすことができました。
+</p>
+
+</div>
+
+                        <div id="body_bottom"><img src="../../lib/exe/indexer.php%3Fid=ja:install:setup_nginx&amp;1771505010" width="2" height="1" alt="" /></div>
+                </div>
+        <div id="footer">
+            <form action="../../start.html" method="get" role="search" class="search doku_form" id="dw__search" accept-charset="utf-8"><input type="hidden" name="do" value="search" /><input type="hidden" name="id" value="ja:install:setup_nginx" /><div class="no"><input name="q" type="text" class="edit" title="[F]" accesskey="f" placeholder="Search" autocomplete="on" id="qsearch__in" value="" /><button value="1" type="submit" title="Search">Search</button><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <ul>
+                <li><a href="setup_nginx%3Fdo=edit.html"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]">Show pagesource</a></li>
+                <li><a href="setup_nginx%3Fdo=login&amp;sectok=.html"  class="action login" rel="nofollow" title="Log In">Log In</a></li>
+            </ul>
+                        <div style="text-align:right;"> 
+              <div><address>Copyright smeghead 2007 - 2011.</address></div> 
+              <div><address>Powered By DokuWiki.</address></div> 
+            </div> 
+        </div>
+    </body>
+</html>

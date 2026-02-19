@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>ja:install:backup</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="ja,install,backup"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="../../../../ja/install/backup%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../feed.php%3Fmode=list&amp;ns=ja:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="backup.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../raw/ja/install/backup"/>
+<link rel="canonical" href="http://127.0.0.1:81/ja/install/backup"/>
+<link rel="stylesheet" type="text/css" href="../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='ja:install';var JSINFO = {"id":"ja:install:backup","namespace":"ja:install","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="バックアップの方法">バックアップの方法</h1>
+<div class="level1">
+
+<p>
+Starbug1で定期的にバックアップを行ないたい場合は、${インストールディレクトリ}/db/*.db をバックアップしてください。 *.dbは、ただのSQLite3のデータベースファイルです。
+例えばcronに登録する場合は以下のようにcrontab -e で設定すれば、バックアップできます。
+</p>
+<pre class="code"># /var/www/starbug1 にインストールされたStarbug1のデータベースを、
+# gzipで圧縮して /var/backup 以下に保存する場合です。
+0 1 * * * tar zcf /var/backup/starbug1backup_$(date +%Y%m%d).tar.gz /var/www/starbug1/db</pre>
+
+</div>
+</div>
+</body>
+</html>

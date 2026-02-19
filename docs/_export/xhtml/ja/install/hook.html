@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>ja:install:hook</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="ja,install,hook"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="../../../../ja/install/hook%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../feed.php%3Fmode=list&amp;ns=ja:install"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="hook.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="../../../raw/ja/install/hook"/>
+<link rel="stylesheet" type="text/css" href="../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='ja:install';var JSINFO = {"id":"ja:install:hook","namespace":"ja:install","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="hook.html#hook機能について">hook機能について</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="hook.html#概要">概要</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="hook.html#メール通知">メール通知</a></div></li>
+<li class="level3"><div class="li"><a href="hook.html#登録ログ保存">登録ログ保存</a></div></li>
+<li class="level3"><div class="li"><a href="hook.html#メッセンジャー通知">メッセンジャー通知</a></div></li>
+<li class="level3"><div class="li"><a href="hook.html#再ビルド">再ビルド</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="hook.html#hook機能の仕様">hook機能の仕様</a></div></li>
+<li class="level2"><div class="li"><a href="hook.html#添付のメール送信スクリプトの設定方法">添付のメール送信スクリプトの設定方法</a></div></li>
+<li class="level2"><div class="li"><a href="hook.html#hookスクリプトの注意点">hookスクリプトの注意点</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="hook機能について">hook機能について</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;hook\u6a5f\u80fd\u306b\u3064\u3044\u3066&quot;,&quot;hid&quot;:&quot;hook\u6a5f\u80fd\u306b\u3064\u3044\u3066&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-38&quot;} -->
+<h2 class="sectionedit2" id="概要">概要</h2>
+<div class="level2">
+
+<p>
+hook機能は、チケットの登録・返信完了時に外部プログラムを呼び出す機能です。 hookとして、外部プログラムを設定すると、チケット登録・返信完了時に外部プログラムを実行させることが可能になります。 また、hookの呼び出しインターフェースが外部プログラムを呼び出す形式であるため、サーバ上の実行可能ファイルであれば、言語は問いません。 アイデアとしては、以下のようなことが実現できます。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6982\u8981&quot;,&quot;hid&quot;:&quot;\u6982\u8981&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;39-612&quot;} -->
+<h3 class="sectionedit3" id="メール通知">メール通知</h3>
+<div class="level3">
+
+<p>
+登録された内容を、メーリングリストへメール送信するようスクリプトをhookに登録する。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30e1\u30fc\u30eb\u901a\u77e5&quot;,&quot;hid&quot;:&quot;\u30e1\u30fc\u30eb\u901a\u77e5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;613-762&quot;} -->
+<h3 class="sectionedit4" id="登録ログ保存">登録ログ保存</h3>
+<div class="level3">
+
+<p>
+登録された内容を、ファイルに保存するようスクリプトをhookに登録する。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u767b\u9332\u30ed\u30b0\u4fdd\u5b58&quot;,&quot;hid&quot;:&quot;\u767b\u9332\u30ed\u30b0\u4fdd\u5b58&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;763-894&quot;} -->
+<h3 class="sectionedit5" id="メッセンジャー通知">メッセンジャー通知</h3>
+<div class="level3">
+
+<p>
+登録された内容を、メッセンジャーに自動投稿するスクリプトをhookに登録する。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u30e1\u30c3\u30bb\u30f3\u30b8\u30e3\u30fc\u901a\u77e5&quot;,&quot;hid&quot;:&quot;\u30e1\u30c3\u30bb\u30f3\u30b8\u30e3\u30fc\u901a\u77e5&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;895-1044&quot;} -->
+<h3 class="sectionedit6" id="再ビルド">再ビルド</h3>
+<div class="level3">
+
+<p>
+登録された内容から、プロジェクトのソースを自動ビルドするスクリプトをhookに登録する。
+</p>
+
+<p>
+アイデア次第では、面白いことができるかもしれません。通常のインストールを行なうと、メール送信用の perl スクリプトのサンプルがscriptディレクトリに配置されます。(メール送信を行なうには、設定が必要です。)
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u518d\u30d3\u30eb\u30c9&quot;,&quot;hid&quot;:&quot;\u518d\u30d3\u30eb\u30c9&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;1045-1489&quot;} -->
+<h2 class="sectionedit7" id="hook機能の仕様">hook機能の仕様</h2>
+<div class="level2">
+
+<p>
+Starbug1は、サーバ上でチケットの登録・返信完了時に以下の動作を行ないます。
+${Starbug1のインストールディレクトリ}/scriptディレクトリ内にある、hook_ で始まるファイル名の実行ファイルを検索します。実行ファイルが見付かった場合、送信内容をjson形式に変換し、環境変数${STARBUG1_CONTENT}に設定した状態で、実行ファイルを実行します。実行ファイルが複数存在した場合は、順に実行ファイルを実行します。
+チケット登録・返信完了のメッセージと一緒に、スクリプトの実行結果を表示します。
+hook機能に登録された外部スクリプトでエラーが発生した場合は、「登録が完了しました。」のメッセージの後に、スクリプトの実行が失敗した旨のメッセージが表示されます。
+</p>
+
+<p>
+環境変数${STARBUG1_CONTENT}に設定されるjsonは以下のような形式になります。(ただし、見易いように整形してあります。) 各言語のjsonとオブジェクトの変換ライブラリで変換すれば、簡単に投稿内容を取得できます。
+</p>
+<pre class="code javascript"><span class="br0">&#123;</span>
+  project<span class="sy0">:</span> <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;テストサンプル プロジェクト&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+  ticket<span class="sy0">:</span> <span class="br0">&#123;</span>
+    id<span class="sy0">:</span> <span class="nu0">2</span><span class="sy0">,</span>
+    url<span class="sy0">:</span> <span class="st0">&quot;http://popnuts.ddo.jp/starbug1/index.cgi/ticket/2&quot;</span><span class="sy0">,</span>
+    fields<span class="sy0">:</span> <span class="br0">&#91;</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;件名&quot;</span><span class="sy0">,</span>     value<span class="sy0">:</span> <span class="st0">&quot;誰でも投稿できるようになっていた件について&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;投稿者&quot;</span><span class="sy0">,</span>   value<span class="sy0">:</span> <span class="st0">&quot;smeghead&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;状態&quot;</span><span class="sy0">,</span>     value<span class="sy0">:</span> <span class="st0">&quot;受付済&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;カテゴリ&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">&quot;画面 &quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;優先度&quot;</span><span class="sy0">,</span>   value<span class="sy0">:</span> <span class="st0">&quot;高&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;詳細&quot;</span><span class="sy0">,</span>     value<span class="sy0">:</span> <span class="st0">&quot;テスト詳細2&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;再現手順&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">&quot;テスト再現手順2&quot;</span> <span class="br0">&#125;</span><span class="sy0">,</span>
+      <span class="br0">&#123;</span> name<span class="sy0">:</span> <span class="st0">&quot;コメント&quot;</span><span class="sy0">,</span> value<span class="sy0">:</span> <span class="st0">&quot;&quot;</span> <span class="br0">&#125;</span>
+    <span class="br0">&#93;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;hook\u6a5f\u80fd\u306e\u4ed5\u69d8&quot;,&quot;hid&quot;:&quot;hook\u6a5f\u80fd\u306e\u4ed5\u69d8&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;1490-3391&quot;} -->
+<h2 class="sectionedit8" id="添付のメール送信スクリプトの設定方法">添付のメール送信スクリプトの設定方法</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="perlモジュールのインストール">perlモジュールのインストール</h4>
+<div class="level4">
+
+<p>
+添付のサンプルメール送信スクリプトは、HTTP::Dateと、JSON:Syckを利用しています。あらかじめ、cpanなどでインストールしておいてください。(JSON:Syckは、YAML:Syckに含まれています)
+</p>
+
+</div>
+
+<h4 id="メール送信スクリプトの設定">メール送信スクリプトの設定</h4>
+<div class="level4">
+
+<p>
+添付のメール送信スクリプトの設定には、多少perlの知識が必要となります。
+Starbug1に添付されているメール送信スクリプトの設定方法を説明します。 ${Starbug1のインストールディレクトリ}/scriptディレクトリに、sample.hook_sendmail.pl が存在します。 以下のコマンドで、メール送信スクリプトをhook_で始まるファイル名に変更します。
+</p>
+<pre class="code sh"># cd ${Starbug1のインストールディレクトリ}/script
+# mv sample.hook_sendmail.pl hook_sendmail.pl</pre>
+
+<p>
+スクリプトの一行目を、perlのpathに変更します。
+</p>
+<pre class="code sh">#!/usr/local/bin/perl</pre>
+
+<p>
+メール送信のための情報を設定します。$options というhashに対して設定を行ないます。 赤文字の部分がカスタマイズ部分です。
+</p>
+<pre class="code perl"><span class="kw1">my</span> <span class="re0">$options</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+  <span class="co1">#使用するSMTPホスト名</span>
+  smtp_host <span class="sy0">=&gt;</span> <span class="st_h">'localhost'</span><span class="sy0">,</span>
+  <span class="co1">#使用するSMTPポート番号</span>
+  smtp_port <span class="sy0">=&gt;</span> <span class="nu0">25</span><span class="sy0">,</span>
+  <span class="co1">#送信するメールのFROMを指定してください。</span>
+  from <span class="sy0">=&gt;</span> <span class="st_h">'project-admin@example.com'</span><span class="sy0">,</span>
+  <span class="co1">#メールの送信先を指定してください。通知したいメーリングリストのアドレスなど。</span>
+  to <span class="sy0">=&gt;</span> <span class="st_h">'project-ml@example.com'</span>
+<span class="br0">&#125;</span><span class="sy0">;</span></pre>
+
+<p>
+設定後、シンタックスエラーが無いかをチェックします。cオプションを指定して実行してください。
+</p>
+<pre class="code"># perl -c hook_sendmail.pl</pre>
+
+<p>
+注意: ここで、モジュールが見付からないというエラーが発生した場合は、不足しているライブラリをインストールしてください。
+以上の設定を行なった後、チケットの登録・返信を行なって、動作確認を行なってください。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u6dfb\u4ed8\u306e\u30e1\u30fc\u30eb\u9001\u4fe1\u30b9\u30af\u30ea\u30d7\u30c8\u306e\u8a2d\u5b9a\u65b9\u6cd5&quot;,&quot;hid&quot;:&quot;\u6dfb\u4ed8\u306e\u30e1\u30fc\u30eb\u9001\u4fe1\u30b9\u30af\u30ea\u30d7\u30c8\u306e\u8a2d\u5b9a\u65b9\u6cd5&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:8,&quot;range&quot;:&quot;3392-5554&quot;} -->
+<h2 class="sectionedit9" id="hookスクリプトの注意点">hookスクリプトの注意点</h2>
+<div class="level2">
+
+<p>
+ただし、さくらインターネットなどレンタルサーバでは外部プログラムの実行が制限されている場合があります。その場合、starbug1のソースのmodule/hook_mail にあるメール送信を行なう共有ライブラリを作成し、$(インストールディレクトリ)/script/ に配置する方法でもメール送信を行なうことができます。
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;hook\u30b9\u30af\u30ea\u30d7\u30c8\u306e\u6ce8\u610f\u70b9&quot;,&quot;hid&quot;:&quot;hook\u30b9\u30af\u30ea\u30d7\u30c8\u306e\u6ce8\u610f\u70b9&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:9,&quot;range&quot;:&quot;5555-&quot;} --></div>
+</body>
+</html>

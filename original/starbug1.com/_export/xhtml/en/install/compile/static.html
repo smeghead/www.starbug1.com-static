@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>en:install:compile:static</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="en,install,compile,static"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../../lib/exe/opensearch.php" title="Starbug1"/>
+<link rel="start" href="../../../../../index.html"/>
+<link rel="contents" href="../../../../../en/install/compile/static%3Fdo=index.html" title="Sitemap"/>
+<link rel="manifest" href="../../../../../lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="../../../../../feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="../../../../../feed.php%3Fmode=list&amp;ns=en:install:compile"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="static.html"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="https://starbug1.com/_export/raw/en/install/compile/static"/>
+<link rel="canonical" href="http://127.0.0.1:81/en/install/compile/static"/>
+<link rel="stylesheet" type="text/css" href="../../../../../lib/exe/css.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d.css"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='en:install:compile';var JSINFO = {"id":"en:install:compile:static","namespace":"en:install:compile","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="../../../../../lib/exe/jquery.php%3Ftseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../../lib/exe/js.php%3Ft=sandy&amp;tseed=ed4b804f211276c408c2cd2ce5e9445d"></script>
+<!--<![endif]-->
+</head>
+<body>
+<div class="dokuwiki export">
+<!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="static.html#how_to_compile_static_binary">How to compile static binary</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="static.html#compile_starbug1">Compile Starbug1</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="static.html#compile">Compile</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="how_to_compile_static_binary">How to compile static binary</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;How to compile static binary&quot;,&quot;hid&quot;:&quot;how_to_compile_static_binary&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-44&quot;} -->
+<h2 class="sectionedit2" id="compile_starbug1">Compile Starbug1</h2>
+<div class="level2">
+
+<p>
+get source.
+</p>
+
+<p>
+Download from <a href="https://sourceforge.jp/projects/starbug1/" class="urlextern" title="https://sourceforge.jp/projects/starbug1/" rel="nofollow">https://sourceforge.jp/projects/starbug1/</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Compile Starbug1&quot;,&quot;hid&quot;:&quot;compile_starbug1&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;45-143&quot;} -->
+<h3 class="sectionedit3" id="compile">Compile</h3>
+<div class="level3">
+
+<p>
+Extract source file archive and compile.
+</p>
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=ja_JP static webapp</pre>
+
+<p>
+It is required GNU Make To compile Starbug1. If make is GNU&#039;s, use gmake instead.
+above command makes web application set to the directory dist/starbug1.
+</p>
+
+<p>
+Compile several language versions.
+</p>
+
+</div>
+
+<h4 id="english_version">English Version</h4>
+<div class="level4">
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=en_US static webapp</pre>
+
+</div>
+
+<h4 id="simplified_chinese">Simplified Chinese</h4>
+<div class="level4">
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=zh_CN static webapp</pre>
+
+</div>
+
+<h4 id="traditional_chinese">Traditional Chinese</h4>
+<div class="level4">
+<pre class="code">$ tar zxf starbug1-x.x.x.tar.gz
+$ cd starbug1
+$ make INITIAL_LOCALE=zh_TW static webapp</pre>
+
+<p>
+<a href="../../../../../en/install/setup.html" class="wikilink1" title="en:install:setup">next is setup.</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Compile&quot;,&quot;hid&quot;:&quot;compile&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;144-&quot;} --></div>
+</body>
+</html>

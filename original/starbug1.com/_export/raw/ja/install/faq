@@ -1,0 +1,12 @@
+===== うまく動かない場合 =====
+
+  * インストール完了したが、ブラウザで http://www.example.com/starbug1/ にアクセスするとエラーが発生し、Webサーバのエラーログに、「Premature end of script headers: index.cgi」のようなメッセージが出力される。
+
+CGIを実行する権限があるか確認してください。以下のような簡単なperlのcgiスクリ プトをstarbug1ディレクトリに配置し実行権限を付加して動作するかどうか確認す ることで、CGI自体が有効になっているかどうかを確認できます。
+
+<code perl>
+#!/usr/bin/perl
+print "Content-Type: text/plain;\n\nhello.";
+</code>
+
+Webサーバプロセスユーザが、starbug1ディレクトリに書き込み権限があるか確認し てください。データベースファイルを格納するために、Webサーバプロセスユーザが starbug1ディレクトリに書き込み可能となっている必要があります。

@@ -1,0 +1,81 @@
+====== How to setup Starbug1 ======
+
+Completed compile Starbug1, put them under Web Server's DocumentRoot Directory.
+==== Deploy ====
+
+copy the compiled dist/starbug1 directory to under web server's DocumentRoot directory.
+
+<code>
+$ su
+# cp -r dist/starbug1 /var/www/
+</code>
+
+
+change directory /var/www/starbug1 owner to CGI execute user.
+
+<code>
+# cd /var/www
+# chown -R www-data:www-data starbug1
+</code>      
+==== Web Server Settings(below for apache) ====
+
+Need to edit .htaccess file, so make AllowOverride 'All' on apache setting file.
+Edit /var/www/starbug1/.htaccess file.
+
+dot.htaccess may be exists. rename and edit.
+<code sh>
+$ cd /var/www/starbug1/
+$ cp dot.htaccess .htaccess 
+</code>
+
+<code apache>
+# Error Page
+ErrorDocument 500 /starbug1/error.html
+# admit to execute cgi
+AddHandler cgi-script cgi
+Options +ExecCGI
+# default page name
+DirectoryIndex index.cgi
+
+# general users settings
+<Files index.cgi>
+    AuthName      "authentication for guest user."
+    AuthType      Basic
+    AuthUserFile  /etc/starbug1/.guest-passwd
+    Require       valid-user
+</Files>
+
+# admin users settings
+<Files admin.cgi>
+    AuthName      "authentication for administrator user."
+    AuthType      Basic
+    AuthUserFile  /etc/starbug1/.admin-passwd
+    Require       valid-user
+</Files>
+# hide files
+<FilesMatch ".*">
+  deny from all
+</FilesMatch>
+# able to view files
+<FilesMatch "(^$|\.cgi$|\.jpg$|\.png$|\.gif$|\.css$|\.js$)">
+  allow from all
+</FilesMatch>
+</code>      
+
+  * Error Page
+
+Set URL of error page. 
+
+  * admit to execute cgi
+
+according to apache settings, It occurred Internal Server Error. If got error, try it comment out.
+
+  * default page name
+
+
+  * Basic certification
+
+
+Open http://www.example.com/starbug1/index.cgi. (change 'www.example.com' to your server name)
+
+If you could see top page, installation has completed.
